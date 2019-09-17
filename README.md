@@ -4,5 +4,7 @@ Este é o repositorio para creación da miña primeira páxina web, así como un
 
 ## Listaxe de tarefas por facer
 
-    [] index.html
+- [ ] index.html
+    - [ ] estrutura
+    - [x] head 
     
