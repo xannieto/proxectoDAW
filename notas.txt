@@ -1,8 +1,9 @@
 <form action="nome_da_paxina"> para os formularios
 
+http://192.168.1.101/
 practicasETIS
 F2DA9C7F
 
 menus de navegación feitos con listas
 
-traballar atributos das imaxes 
+traballar atributos das imaxes
