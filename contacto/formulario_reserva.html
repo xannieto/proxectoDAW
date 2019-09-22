@@ -9,99 +9,94 @@
         <meta name="description" content="A túa casa rural" >
 
         <title> Ruralia </title>
-        <img src="../imaxes/logo.svg" width="256" height="65" title="Ruralia logotipo">
-    </head>
-
-    <nav>
-        <ul>
-            <li> <a href="../index.html"> Sobre nós </a> </li>
-            <li> <a href="../intalacions/instalacions.html"> Instalacións </a> </li>
-            <ul>
-                <li> <a href="../intalacions/historia.html"> Historia </a> </li>
-                <li> <a href="../intalacions/patio.html"> O patio </a> </li>
-                <li> <a href="../intalacions/xardins.html"> Xardíns </a> </li>
-                <li> <a href="../intalacions/lareira.html"> Lareira </a> </li>
-                <li> <a href="../intalacions/comedor.html"> Comedor </a> </li>
-                <li> <a href="../intalacions/habitacions.html"> Habitacións </a></li>
-            </ul>
-            <li> <a href="../gastronomia/gastronomia.html"> Gastronomía </a> </li>
-            <ul>
-                <li> <a href="../gastronomia/comida.html"> Comida </a> </li>
-                <li> <a href="../gastronomia/bebida.html"> Bebida </a> </li>
-            </ul>
-
-            <li> <a href="./contacto.html"> Contacto e información </a> </li>
-            <ul>
-                <li> <a href="./info_contacto.html"> Horarios e telefono </a> </li>
-                <li> <a href="./formulario_reserva.html"> Realizar reserva </a> </li>
-                <li> <a href="./modificar_reserva.html"> Modificar unha reserva </a> </li>
-                <li> <a href="./eliminar_reserva.html"> Eliminar unha reserva </a> </li>
-            </ul>
-        </ul>
-    </nav> 
-
-    <body>
         
+    </head>
+    
+    <body>
+        <img src="../imaxes/logo.svg" width="256" height="65" title="Ruralia logotipo">
+    
+        <nav>
+            <ul>
+                <li> <a href="../index.html"> Sobre nós </a> </li>
+                <li> <a href="../intalacions/instalacions.html"> Instalacións </a>
+                <ul>
+                    <li> <a href="../intalacions/historia.html"> Historia </a> </li>
+                    <li> <a href="../intalacions/patio.html"> O patio </a> </li>
+                    <li> <a href="../intalacions/xardins.html"> Xardíns </a> </li>
+                    <li> <a href="../intalacions/lareira.html"> Lareira </a> </li>
+                    <li> <a href="../intalacions/comedor.html"> Comedor </a> </li>
+                    <li> <a href="../intalacions/habitacions.html"> Habitacións </a></li>
+                </ul>
+                </li>
+
+                <li> <a href="../gastronomia/gastronomia.html"> Gastronomía </a>
+                <ul>
+                    <li> <a href="../gastronomia/comida.html"> Comida </a> </li>
+                    <li> <a href="../gastronomia/bebida.html"> Bebida </a> </li>
+                </ul>
+                </li>
+
+                <li> <a href="./contacto.html"> Contacto e información </a>
+                <ul>
+                    <li> <a href="./info_contacto.html"> Horarios e telefono </a> </li>
+                    <li> <a href="./formulario_reserva.html"> Realizar reserva </a> </li>
+                    <li> <a href="./modificar_reserva.html"> Modificar unha reserva </a> </li>
+                    <li> <a href="./eliminar_reserva.html"> Eliminar unha reserva </a> </li>
+                </ul>
+                </li>
+            </ul>
+        </nav> 
+        
+
+        <h1> Realizar reserva </h1>
         <section>
-
-            <h1> Reserva </h1>
-
             <h2>Cubra o seguinte formulario</h2>
-            
             <form action="exito.html">
-
+    
                 <p>
                 <label for="tempo_instancia"> Duración da instancia </label>
                 <select name="tempo_instancia" id="tempo_instancia" required autofocus>
+                    <option value="">Seleccione unha</option>
                     <option value="1">1</option>
                     <option value="3">3</option>
                     <option value="5">5</option>
                     <option value="7">7</option>
                 </select>
-
+    
                 <label for="data_entrada"> Data comezo da instancia </label>
                 <input type="date" name="data_entrada" id="data_entrada"
-                required
-                autofocus>
-
+                required>
+    
                 <label for="data_saida"> Data remate da instancia </label>
                 Data fin de instancia : <input type="date" name="data_saida" id="data_saida"
-                readonly
-                autofocus
-                placeholder="01/01/2020">
+                readonly>
                 </p>
-
+    
                 <p>
                 <label for="nome"> Nome </label>
-                <input type="text" name="nome" id="name"
-                autofocus
+                <input type="text" name="nome" id="nome"
                 required>
-
+    
                 <label for="apelido1"> Apelido 1 </label>
                 <input type="text" name="apelido1" id="apelido1"
-                required
-                autofocus>
-
+                required>
+    
                 <label for="apelido2"> Apelido 2 </label>
                 <input type="text" name="apelido2" id="apelido2"
-                autofocus
                 required>
                 </p>
-
+    
                 <p>
                 <label for="dni"> DNI</label>
                 <input type="text" name="dni" id="dni"
-                autofocus
                 required>
-
+    
                 <label for="telefono"> Teléfono </label>
                 <input type="tel" name="telefono" id="telefono"
-                autofocus
                 required>
-
+    
                 <label for="dir"> Dirección </label>
                 <input type="text" name="dir" id="dir"
-                autofocus
                 required>
                 </p>
                 
@@ -112,34 +107,34 @@
                 max="7"
                 step="1"
                 value="1"
-                autofocus
                 required>
-
+    
                 <label for="num_habitacions"> Número de habitacións </label>
                 <input type="number" name="num_habitacions" id="num_habitacions"
                 min="1"
                 max="7"
                 step="1"
                 value="1"
-                autofocus
                 required>
                 </p>
-
+    
                 <input type="reset" name="reset" id="reset" value="Borrar todo">
-                <input type="submit" id="submit" name="submit" value="Reservar" autofocus>
-
+                <input type="submit" id="submit" name="submit" value="Reservar">
+    
             </form>
 
         </section>
 
+        <footer>
+            <h1> Síguenos nas nosas redes sociais!</h1>
+            <!-- son enlaces inventados en teoría -->
+            <a href="https://www.facebook.com/ruralia/"><img src="../imaxes/facebook.png" title="Facebook" width="32" height="32"></a>  
+            <a href="https://www.twitter.com/ruralia/"><img src="../imaxes/twitter.png" title="Twitter" width="32" height="32"></a>
+            <a href="https://www.instagram.com/ruralia/"><img src="../imaxes/instagram.png" title="Instagram" width="32" height="32"></a>
+            <p> Ruralia © - Tódolos dereitos reservados </p>
+        </footer>
+
     </body>
 
-    <footer>
-        <h1> Síguenos nas nosas redes sociais!</h1>
-        <img src="../imaxes/facebook.png" src="https:/www.facebook.com/ruralia" title="Facebook" width="32" height="32">
-        <img src="../imaxes/twitter.png" src="https:/www.twitter.com/ruralia" title="Twitter" width="32" height="32">
-        <img src="../imaxes/instagram.png" src="https:/www.instagram.com/ruralia" title="Instagram" width="32" height="32">
-        <p> Ruralia © - Tódolos dereitos reservados </p>
-    </footer>
-
 </html>
+  
