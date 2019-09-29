@@ -1,0 +1,44 @@
+RRRRRRRR/* tipografia importada */
+@font-face {
+    font-family: 'Montserrat Alternates';
+    src: url(tipografias/MontserratAlternates-Bold.ttf);
+}
+
+body {
+    color: whitesmoke;
+}
+
+.colector {
+    background-color: #B0F252;
+}
+
+.h1, .h2, .h3 {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.logotipo-ruralia {
+    background: url(imaxes/vinha.png) no-repeat top;
+}
+
+.barra-navegacion {
+    background-color: #4A6623;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 2vw;
+    font-variant: small-caps;
+}
+
+ul, li {
+    display: inline;
+    list-style: none;
+}
+
+.pe-paxina{
+    background: #4A6623;
+}
+
+/*
+Color 1: #78A638
+Color 2: #4A6623
+Color 3: #A6E64E
+Color 4: #B0F252
+Color 5: #94CC45 */
