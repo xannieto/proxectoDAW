@@ -15,14 +15,13 @@
     
     <body>
 
-        <div class="logotipo-ruralia">
-            <img src="./imaxes/logo.svg" width="256" height="65" title="Ruralia logotipo">
-        </div>
-
         <div class="colector">
 
-        <div class="barra-navegacion">
-            <nav>
+        <div class="cabeceira" role="header">
+        
+        <img src="./imaxes/logo.svg" width="256" height="65" title="Ruralia logotipo">
+        
+        <nav>
             <ul>
                 <li> <a href="./index.html"> Sobre nós </a> </li>
                 <li> <a href="./instalacions/instalacions.html"> Instalacións </a>
@@ -43,7 +42,7 @@
                 </ul>
                 </li>
     
-                <li> <a href="./contacto/contacto.html"> Contacto e información </a>
+                <li id="li_info"> <a href="./contacto/contacto.html"> Contacto e información </a>
                 <ul>
                     <li> <a href="./contacto/info_contacto.html"> Horarios e telefono </a> </li>
                     <li> <a href="./contacto/formulario_reserva.html"> Realizar reserva </a> </li>
@@ -52,18 +51,15 @@
                 </ul>
                 </li>
             </ul>
-            </nav>
-        </div>
-
-        <div class="titulo-paxina">
-            <h1> Sobre nós </h1>
+        </nav>
+        
         </div>
 
         <div class="seccion">
-            <section>
         
-            <div class="artigo">
-                <article>
+            <h1> Sobre nós </h1>
+
+            <div class="artigo" role="article">
                     <h2>Quen somos? </h2>
                     <p>
                         Somos unha empresa que posúe un fermoso pazo rodeado de viñedos centenarios no 
@@ -72,37 +68,29 @@
                     </p>
         
                     <p><i> En construción... </i></p>
-                </article>
                 
             </div>
             
-            <div class="artigo" >
-                <article>
+            <div class="artigo" role="article">
                     <h2> Coñécenos! </h2>
 
                     <p>
-                    <a href="./instalacions/html/instalacions.html"> <img src="imaxes/instalacions.jpg" height="150" width="200" title="Instalacións"> </a>
-                    <a href="./gastronomia/html/gastronomia.html"> <img src="imaxes/comida.jpg" height="150" width="200" title="Gastronomía"> </a>
-                    <a href="./contacto/html/contacto.html"> <img src="imaxes/lecer.jpg" height="150" width="200" title="Contacto"> </a>
-                    </p>
-                </article>   
+                    <a href="./instalacions/instalacions.html"> <img src="imaxes/instalacions.jpg" height="150" width="200" title="Instalacións"> </a>
+                    <a href="./gastronomia/gastronomia.html"> <img src="imaxes/comida.jpg" height="150" width="200" title="Gastronomía"> </a>
+                    <a href="./contacto/contacto.html"> <img src="imaxes/lecer.jpg" height="150" width="200" title="Contacto"> </a>
+                    </p>  
             </div>
 
-            </section>
-
         </div>
 
-        </div>
-
-        <div class="pe-paxina">
-            <footer>
+        <div class="pe-paxina" role="banner">
                 <h1> Síguenos nas nosas redes sociais!</h1>
-                <!-- son enlaces inventados en teoría -->
+
                 <a href="https://www.facebook.com/ruralia/"><img src="./imaxes/facebook.png" title="Facebook" width="32" height="32"></a>  
                 <a href="https://www.twitter.com/ruralia/"><img src="./imaxes/twitter.png" title="Twitter" width="32" height="32"></a>
                 <a href="https://www.instagram.com/ruralia/"><img src="./imaxes/instagram.png" title="Instagram" width="32" height="32"></a>
                 <p> Ruralia © - Tódolos dereitos reservados </p>
-            </footer>
+        </div>
         </div>
     </body>
 

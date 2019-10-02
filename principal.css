@@ -1,39 +1,133 @@
-RRRRRRRR/* tipografia importada */
+/* tipografia importada */
 @font-face {
     font-family: 'Montserrat Alternates';
     src: url(tipografias/MontserratAlternates-Bold.ttf);
 }
 
+* {
+    padding: 0vw;
+    box-sizing: border-box;
+}
+
+/* CABECEIRA */
+
+.cabeceira {
+    margin: 0vw;
+    width: auto;
+    background: url(imaxes/vinha.png) no-repeat top;
+    /*overflow: auto;*/
+}
+
+.cabeceira img {
+    margin-left: 5vw;
+    margin-top: 1vw;
+}
+
+/* MENU */
+
+/* xeral */
+
+nav ul{
+    list-style: none;
+    padding: 0vw;
+}
+
+nav li {
+    line-height: 3vw; 
+    position: relative;
+}
+
+nav li ul {
+    position: absolute;
+}
+
+nav a {
+    text-decoration: none;
+    color: #B0F252;
+    font-family: 'Montserrat Alternates';
+    display: block;
+    padding: 0 1vw;
+    transition: 400ms;
+}
+
+nav a:hover{
+    background: rgba(176, 242, 82, 0.5);
+}
+
+nav ul ul {
+    display: none;
+}
+
+nav li:hover ul {
+    display: block;
+}
+
+/* primeiro nivel */
+
+nav > ul {
+    background: rgba(74, 102, 35, 1);
+    display: table;
+    width: 100%;
+    padding-left: 5vw;
+}
+
+nav > ul > li {
+    float: left;
+}
+
+/* segundo nivel */
+nav li li {
+    background: rgb(100, 145, 59);
+    color: whitesmoke;
+    width: 17vw;
+}
+
+/* especifico */
+
+#li_info{
+    float: right;
+    margin-right: 5vw;
+}
+
+/* CORPO */
 body {
     color: whitesmoke;
+    background: #4A6623;
+    margin: 0vw;
 }
 
 .colector {
-    background-color: #B0F252;
+    background-color: rgb(182, 236, 106);
 }
 
-.h1, .h2, .h3 {
+/* titulos */
+h1, h2, h3 {
     font-family: 'Montserrat Alternates', sans-serif;
 }
 
-.logotipo-ruralia {
-    background: url(imaxes/vinha.png) no-repeat top;
+p {
+    font-family: Verdana, sans-serif;
+    color: whitesmoke;
 }
 
-.barra-navegacion {
-    background-color: #4A6623;
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-size: 2vw;
-    font-variant: small-caps;
+.titulo-paxina, .seccion {
+    margin-left: 2vw; 
 }
 
-ul, li {
-    display: inline;
-    list-style: none;
+/* artigos */
+.artigo {
+    margin-right: 35%;
+    text-justify: newspaper;
 }
 
-.pe-paxina{
+
+/* PE DE PAXINA */
+
+.pe-paxina {
+    text-align: center;
+    padding: 1vw;
     background: #4A6623;
+    font-family: 'Montserrat Alternates';
 }
 
 /*

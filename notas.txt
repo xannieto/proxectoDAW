@@ -4,6 +4,9 @@ http://192.168.1.101/
 practicasETIS
 F2DA9C7F
 
+practicas_DAW_2.4
+wzujd51823
+
 menus de navegación feitos con listas
 
 traballar atributos das imaxes
