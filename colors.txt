@@ -1,0 +1,5 @@
+Color 1: #78A638
+Color 2: #4A6623
+Color 3: #A6E64E
+Color 4: #B0F252
+Color 5: #94CC45
