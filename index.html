@@ -14,12 +14,14 @@
     </head> 
     
     <body>
-
         <div class="colector">
 
         <div class="cabeceira" role="header">
-        
-        <img src="./imaxes/logo.svg" width="256" height="65" title="Ruralia logotipo">
+
+
+        <div class=imaxe-cabeceira>
+            <img src="./imaxes/logo.svg" width="256" height="65" title="Ruralia logotipo">
+        </div>
         
         <nav>
             <ul>
@@ -41,6 +43,10 @@
                     <li> <a href="./gastronomia/bebida.html"> Bebida </a> </li>
                 </ul>
                 </li>
+
+                <li>
+                    <a href="./lecer/lecer.html"> Lecer </a>
+                </li>
     
                 <li id="li_info"> <a href="./contacto/contacto.html"> Contacto e información </a>
                 <ul>
@@ -55,43 +61,90 @@
         
         </div>
 
-        <div class="seccion">
+        <div class="seccion-esquerda">
+            <!-- baleira -->
+        </div>
+
+        <div class="seccion-central">
         
             <h1> Sobre nós </h1>
 
             <div class="artigo" role="article">
                     <h2>Quen somos? </h2>
                     <p>
-                        Somos unha empresa que posúe un fermoso pazo rodeado de viñedos centenarios no 
-                        interior da provincia de Ourense. Levamos máis de dez anos de experiencia
-                        e pasión dedicados a isto, a conectar cun entorno amigábel, tranquilo e rural...
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec magna felis, finibus ut mauris vel,
+                        vulputate posuere orci. Donec aliquam non tortor vel luctus. Morbi tincidunt tellus vitae urna ultrices,
+                        lacinia rutrum eros tristique. Vivamus sit amet dignissim mauris. Curabitur fringilla facilisis enim,
+                        at feugiat diam dapibus ut. Suspendisse cursus vestibulum ex, ut rutrum purus rutrum in. Duis consequat
+                        aliquet lorem, non maximus tortor luctus ut. Maecenas sit amet lorem id diam egestas porttitor commodo quis purus.
+                        Nunc eget orci non justo convallis blandit in at enim. Pellentesque mauris arcu, feugiat nec tristique vitae, semper a nunc.
+                        Integer varius convallis elit, vitae dictum risus gravida sed. Nunc blandit orci nulla, sed malesuada lectus tempor ut.
                     </p>
-        
+
+                    <br>
+
                     <p><i> En construción... </i></p>
                 
             </div>
             
             <div class="artigo" role="article">
+
                     <h2> Coñécenos! </h2>
 
-                    <p>
-                    <a href="./instalacions/instalacions.html"> <img src="imaxes/instalacions.jpg" height="150" width="200" title="Instalacións"> </a>
-                    <a href="./gastronomia/gastronomia.html"> <img src="imaxes/comida.jpg" height="150" width="200" title="Gastronomía"> </a>
-                    <a href="./contacto/contacto.html"> <img src="imaxes/lecer.jpg" height="150" width="200" title="Contacto"> </a>
-                    </p>  
+                    <p id="p_galeria">
+
+                    <div class="galeria">
+                        <a target="_blank" href="./instalacions/instalacions.html">
+                            <img src="imaxes/instalacions.jpg" alt="Instalacións" width="200" height="150">
+                        </a>
+                        <div class="descricion">As instalacións</div>
+                    </div>
+
+                    <div class="galeria">
+                        <a target="_blank" href="./gastronomia/gastronomia.html">
+                            <img src="imaxes/comida.jpg" alt="Gastronomía" width="200" height="150">
+                        </a>
+                        <div class="descricion">A nosa gastronomía</div>
+                    </div>
+
+                    <div class="galeria">
+                        <a target="_blank" href="./lecer/lecer.html">
+                            <img src="imaxes/lecer.jpg" alt="Lecer" width="200" height="150">
+                        </a>
+                        <div class="descricion">Lecer</div>
+                    </div> 
+
+                    <div class="galeria">
+                        <a target="_blank" href="./contacto/contacto.html">
+                            <img src="imaxes/contacto.jpg" alt="Lecer" width="200" height="150">
+                        </a>
+                        <div class="descricion">Contáctanos</div>
+                    </div> 
+
+                    </p>
             </div>
 
         </div>
 
-        <div class="pe-paxina" role="banner">
-                <h1> Síguenos nas nosas redes sociais!</h1>
+        <div class="seccion-dereita">
+            <!-- baleira  -->
+        </div>
 
+        
+        <div class="pe-paxina" role="banner">
+            <h1> Síguenos nas nosas redes sociais!</h1>
+            
+            <p id="p_redes">
                 <a href="https://www.facebook.com/ruralia/"><img src="./imaxes/facebook.png" title="Facebook" width="32" height="32"></a>  
                 <a href="https://www.twitter.com/ruralia/"><img src="./imaxes/twitter.png" title="Twitter" width="32" height="32"></a>
                 <a href="https://www.instagram.com/ruralia/"><img src="./imaxes/instagram.png" title="Instagram" width="32" height="32"></a>
-                <p> Ruralia © - Tódolos dereitos reservados </p>
+            </p>
+                
+            <p id="p_copyright"> Ruralia © - Tódolos dereitos reservados </p>
         </div>
+        
         </div>
+
     </body>
 
 </html>

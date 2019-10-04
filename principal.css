@@ -1,28 +1,74 @@
+/* xeralidades */
+* {
+    padding: 0vw;
+    margin: 0vw;
+}
+
 /* tipografia importada */
 @font-face {
     font-family: 'Montserrat Alternates';
-    src: url(tipografias/MontserratAlternates-Bold.ttf);
+    src: url(tipografias/MontserratAlternates-Regular.ttf);
 }
 
-* {
-    padding: 0vw;
-    box-sizing: border-box;
+/* POSICIONAMENTO DOS BLOQUES */
+
+/* The grid container */
+.colector {
+    width: 100%;
+    margin: auto;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+      'header header header header header header' 
+      'left middle middle middle middle right' 
+      'footer footer footer footer footer footer';
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr;
+    color: whitesmoke;
 }
 
+.cabeceira {
+    grid-area: header;
+}
+
+.seccion-esquerda{
+    grid-area: left;
+}
+
+.seccion-central{
+    grid-area: middle; 
+}
+
+.seccion-dereita {
+    grid-area: right;
+}
+
+.pe-paxina{
+    grid-area: footer;
+}
+
+@media (max-width: 600px) {
+    .grid-container  {
+      grid-template-areas: 
+        'header header header header header header' 
+        'left left left left left left' 
+        'right right right right right right' 
+        'footer footer footer footer footer footer';
+    }
+  }
 /* CABECEIRA */
 
 .cabeceira {
     margin: 0vw;
     width: auto;
     background: url(imaxes/vinha.png) no-repeat top;
-    /*overflow: auto;*/
 }
 
-.cabeceira img {
-    margin-left: 5vw;
-    margin-top: 1vw;
+.cabeceira .imaxe-cabeceira {
+    padding: 2em;
+    text-align: center;
 }
-
 /* MENU */
 
 /* xeral */
@@ -45,12 +91,13 @@ nav a {
     text-decoration: none;
     color: #B0F252;
     font-family: 'Montserrat Alternates';
+    font-weight: bold;
     display: block;
     padding: 0 1vw;
     transition: 400ms;
 }
 
-nav a:hover{
+nav a:hover {
     background: rgba(176, 242, 82, 0.5);
 }
 
@@ -68,7 +115,6 @@ nav > ul {
     background: rgba(74, 102, 35, 1);
     display: table;
     width: 100%;
-    padding-left: 5vw;
 }
 
 nav > ul > li {
@@ -86,23 +132,32 @@ nav li li {
 
 #li_info{
     float: right;
-    margin-right: 5vw;
 }
 
-/* CORPO */
+/* textos e títulos */
 body {
-    color: whitesmoke;
-    background: #4A6623;
-    margin: 0vw;
+    background: azure;
 }
 
-.colector {
-    background-color: rgb(182, 236, 106);
+.artigo {
+    padding-bottom: 3em; ; 
 }
 
-/* titulos */
-h1, h2, h3 {
+
+h1,
+h2,
+h3 {
     font-family: 'Montserrat Alternates', sans-serif;
+}
+
+h1 {
+    padding-bottom: 1em; 
+    font-size: 3em; 
+}
+
+h2,
+h3 {
+    padding-bottom: 0.5em
 }
 
 p {
@@ -110,29 +165,65 @@ p {
     color: whitesmoke;
 }
 
-.titulo-paxina, .seccion {
-    margin-left: 2vw; 
-}
 
 /* artigos */
-.artigo {
-    margin-right: 35%;
-    text-justify: newspaper;
+
+.seccion-esquerda {
+    background: rgba(134, 133, 99);
+}
+
+.seccion-central{
+    text-align: center;
+    padding: 2.5em 5em 2em 5em;
+    background: rgb(154, 199, 90);
+}
+
+.seccion-dereita {
+    background: rgba(134, 133, 99)
+}
+
+
+/* imaxes */
+
+.galeria {
+  margin: 5px;
+  display: inline-block;
+  width: 200px;
+  background: rgb(100, 145, 59);
+}
+
+.galeria:hover {
+  border: 1px solid azure;
+  transition: 500ms;
+}
+
+.galeria img {
+  width: 100%;
+  height: 100%;
+}
+
+.descricion {
+  padding: 15px;
+  text-align: center;
 }
 
 
 /* PE DE PAXINA */
 
 .pe-paxina {
+    display: inline;
     text-align: center;
-    padding: 1vw;
+    padding: 2em;
     background: #4A6623;
     font-family: 'Montserrat Alternates';
 }
 
-/*
-Color 1: #78A638
-Color 2: #4A6623
-Color 3: #A6E64E
-Color 4: #B0F252
-Color 5: #94CC45 */
+#p_redes {
+    display: inline-block;
+    padding: 0em 0em 2em 0em;
+}
+
+#p_copyright {
+    font-style: italic;
+    font-size: 1em;
+}
