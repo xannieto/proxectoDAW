@@ -49,14 +49,16 @@
 }
 
 @media (max-width: 600px) {
-    .grid-container  {
+    .colector {
       grid-template-areas: 
         'header header header header header header' 
-        'left left left left left left' 
+        'left left left left left left'
+        'middle middle middle middle middle middle'
         'right right right right right right' 
         'footer footer footer footer footer footer';
     }
-  }
+}
+
 /* CABECEIRA */
 
 .cabeceira {
@@ -125,7 +127,7 @@ nav > ul > li {
 nav li li {
     background: rgb(100, 145, 59);
     color: whitesmoke;
-    width: 17vw;
+    width: 15em;
 }
 
 /* especifico */
@@ -140,7 +142,7 @@ body {
 }
 
 .artigo {
-    padding-bottom: 3em; ; 
+    padding-bottom: 2em; ; 
 }
 
 
@@ -163,6 +165,7 @@ h3 {
 p {
     font-family: Verdana, sans-serif;
     color: whitesmoke;
+    padding-bottom: 1em;
 }
 
 

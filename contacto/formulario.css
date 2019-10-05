@@ -1,0 +1,73 @@
+
+form {
+  text-align: center;
+}
+
+input, select, .boton-cancelar {
+    padding: 0.5em;
+    margin-top: 0.25em;
+    margin-bottom: 1em;
+    width: 100%
+}
+
+select {
+  background: azure;
+  border-radius: 0.2em;
+  border: none;
+  border-bottom: 2px solid green;
+}
+
+input[type=text],
+input[type=number],
+input[type=tel],
+input[type=date],
+input[type=password]{
+  background: azure;
+  border-radius: 0.2em;
+  border: none;
+  border-bottom: 2px solid green;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+input[type=submit] {
+  background-color: rgba(176, 242, 82, 0.5);;
+  width: 40%;
+  border: 2px solid rgba(74, 102, 35, 1);
+}
+
+input[type=submit]:hover {
+  background-color: rgba(74, 102, 35, 1);
+  transition: 0.5s;
+}
+
+input[type=reset],
+.boton-cancelar {
+  border: 2px solid #f44336;
+  background: lightcoral;
+  width: 40%;
+}
+
+input[type=reset]:hover,
+.boton-cancelar:hover, 
+.boton-cancelar:active,
+input[type=reset]:active{
+  background: #f44336;
+  transition: 0.5s;
+}
+
+.boton-cancelar {
+  font-size: 12px;
+  text-decoration: none;
+  color: whitesmoke;
+  padding: 1.5em 12em; 
+}

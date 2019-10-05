@@ -8,27 +8,37 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A túa casa rural" >
 
+        <link rel="stylesheet" media="screen" href="../principal.css">
+        <link rel="stylesheet" media="screen" href="./formulario.css">
         <title> Ruralia </title>
-        
     </head>
-    
+
     <body>
-        <img src="../imaxes/logo.svg" width="256" height="65" title="Ruralia logotipo">
-    
+        <div class="colector">
+
+        <div class="cabeceira" role="header">
+
+
+        <div class=imaxe-cabeceira>
+            <a href="../index.html">    
+                <img src="../imaxes/logo.svg" width="256" height="65" title="Ruralia logotipo">
+            </a>
+        </div>
+        
         <nav>
             <ul>
                 <li> <a href="../index.html"> Sobre nós </a> </li>
-                <li> <a href="../intalacions/instalacions.html"> Instalacións </a>
+                <li> <a href="../instalacions/instalacions.html"> Instalacións </a>
                 <ul>
-                    <li> <a href="../intalacions/historia.html"> Historia </a> </li>
-                    <li> <a href="../intalacions/patio.html"> O patio </a> </li>
-                    <li> <a href="../intalacions/xardins.html"> Xardíns </a> </li>
-                    <li> <a href="../intalacions/lareira.html"> Lareira </a> </li>
-                    <li> <a href="../intalacions/comedor.html"> Comedor </a> </li>
-                    <li> <a href="../intalacions/habitacions.html"> Habitacións </a></li>
+                    <li> <a href="../instalacions/historia.html"> Historia </a> </li>
+                    <li> <a href="../instalacions/vinha.html"> A vinha </a> </li>
+                    <li> <a href="../instalacions/xardins.html"> Xardíns </a> </li>
+                    <li> <a href="../instalacions/lareira.html"> Lareira </a> </li>
+                    <li> <a href="../instalacions/comedor.html"> Comedor </a> </li>
+                    <li> <a href="../instalacions/habitacions.html"> Habitacións </a></li>
                 </ul>
                 </li>
-
+            
                 <li> <a href="../gastronomia/gastronomia.html"> Gastronomía </a>
                 <ul>
                     <li> <a href="../gastronomia/comida.html"> Comida </a> </li>
@@ -36,105 +46,131 @@
                 </ul>
                 </li>
 
-                <li> <a href="./contacto.html"> Contacto e información </a>
+                <li>
+                    <a href="../lecer/lecer.html"> Lecer </a>
+                </li>
+    
+                <li id="li_info"> <a href="../contacto/contacto.html"> Contacto e información </a>
                 <ul>
-                    <li> <a href="./info_contacto.html"> Horarios e telefono </a> </li>
-                    <li> <a href="./formulario_reserva.html"> Realizar reserva </a> </li>
-                    <li> <a href="./modificar_reserva.html"> Modificar unha reserva </a> </li>
-                    <li> <a href="./eliminar_reserva.html"> Eliminar unha reserva </a> </li>
+                    <li> <a href="../contacto/info_contacto.html"> Horarios e telefono </a> </li>
+                    <li> <a href="../contacto/formulario_reserva.html"> Realizar reserva </a> </li>
+                    <li> <a href="../contacto/modificar_reserva.html"> Modificar unha reserva </a> </li>
+                    <li> <a href="../contacto/eliminar_reserva.html"> Eliminar unha reserva </a> </li>
                 </ul>
                 </li>
             </ul>
-        </nav> 
+        </nav>
         
+        </div>
 
-        <h1> Realizar reserva </h1>
-        <section>
-            <h2>Cubra o seguinte formulario</h2>
-            <form action="exito.html">
-    
-                <p>
-                <label for="tempo_instancia"> Duración da instancia </label>
-                <select name="tempo_instancia" id="tempo_instancia" required autofocus>
-                    <option value="">Seleccione unha</option>
-                    <option value="1">1</option>
-                    <option value="3">3</option>
-                    <option value="5">5</option>
-                    <option value="7">7</option>
-                </select>
-    
-                <label for="data_entrada"> Data comezo da instancia </label>
-                <input type="date" name="data_entrada" id="data_entrada"
-                required>
-    
-                <label for="data_saida"> Data remate da instancia </label>
-                Data fin de instancia : <input type="date" name="data_saida" id="data_saida"
-                readonly>
-                </p>
-    
-                <p>
-                <label for="nome"> Nome </label>
-                <input type="text" name="nome" id="nome"
-                required>
-    
-                <label for="apelido1"> Apelido 1 </label>
-                <input type="text" name="apelido1" id="apelido1"
-                required>
-    
-                <label for="apelido2"> Apelido 2 </label>
-                <input type="text" name="apelido2" id="apelido2"
-                required>
-                </p>
-    
-                <p>
-                <label for="dni"> DNI</label>
-                <input type="text" name="dni" id="dni"
-                required>
-    
-                <label for="telefono"> Teléfono </label>
-                <input type="tel" name="telefono" id="telefono"
-                required>
-    
-                <label for="dir"> Dirección </label>
-                <input type="text" name="dir" id="dir"
-                required>
-                </p>
+        <div class="seccion-esquerda">
+            <!-- baleira -->
+        </div>
+
+        <div class="seccion-central">
+        
+            <h1> Realizar unha reserva </h1>
+
+            <div class="artigo" role="article">
+                <h2> Cubra o seguinte formulario </h2>
                 
-                <p>
-                <label for="num_persoas"> Número de persoas </label>
-                <input type="number" name="num_persoas" id="num_persoas"
-                min="1"
-                max="7"
-                step="1"
-                value="1"
-                required>
-    
-                <label for="num_habitacions"> Número de habitacións </label>
-                <input type="number" name="num_habitacions" id="num_habitacions"
-                min="1"
-                max="7"
-                step="1"
-                value="1"
-                required>
-                </p>
-    
-                <input type="reset" name="reset" id="reset" value="Borrar todo">
-                <input type="submit" id="submit" name="submit" value="Reservar">
-    
-            </form>
+                <form action="modificar_reserva.html">
 
-        </section>
+                    <p>
+                    <label for="tempo_instancia"> Duración da instancia </label>
+                    <select name="tempo_instancia" id="tempo_instancia" required autofocus>
+                        <option value="">Seleccione unha</option>
+                        <option value="1">1</option>
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="7">7</option>
+                    </select>
+            
+                    <label for="data_entrada"> Data comezo da instancia </label>
+                    <input type="date" name="data_entrada" id="data_entrada"
+                    required>
+            
+                    <label for="data_saida"> Data remate da instancia </label>
+                    Data fin de instancia : <input type="date" name="data_saida" id="data_saida"
+                    readonly>
+                    </p>
+            
+                    <p>
+                    <label for="nome"> Nome </label>
+                    <input type="text" name="nome" id="nome"
+                    required>
+            
+                    <label for="apelido1"> Apelido 1 </label>
+                    <input type="text" name="apelido1" id="apelido1"
+                    required>
+            
+                    <label for="apelido2"> Apelido 2 </label>
+                    <input type="text" name="apelido2" id="apelido2"
+                    required>
+                    </p>
+            
+                    <p>
+                    <label for="dni"> DNI</label>
+                    <input type="text" name="dni" id="dni"
+                    required>
+            
+                    <label for="telefono"> Teléfono </label>
+                    <input type="tel" name="telefono" id="telefono"
+                    required>
+            
+                    <label for="dir"> Dirección </label>
+                    <input type="text" name="dir" id="dir"
+                    required>
+                    </p>
+                    
+                    <p>
+                    <label for="num_persoas"> Número de persoas </label>
+                    <input type="number" name="num_persoas" id="num_persoas"
+                    min="1"
+                    max="7"
+                    step="1"
+                    value="1"
+                    required>
+            
+                    <label for="num_habitacions"> Número de habitacións </label>
+                    <input type="number" name="num_habitacions" id="num_habitacions"
+                    min="1"
+                    max="7"
+                    step="1"
+                    value="1"
+                    required>
+                    </p>
+                    
+                    <p>
+                    <input type="reset" name="reset" id="reset" value="Borrar todo">
+                    <input type="submit" id="submit" name="submit" value="Reservar">
+                    </p>
 
-        <footer>
+                </form>
+                
+            </div>
+
+        </div>
+
+        <div class="seccion-dereita">
+            <!-- baleira  -->
+        </div>
+
+        
+        <div class="pe-paxina" role="banner">
             <h1> Síguenos nas nosas redes sociais!</h1>
-            <!-- son enlaces inventados en teoría -->
-            <a href="https://www.facebook.com/ruralia/"><img src="../imaxes/facebook.png" title="Facebook" width="32" height="32"></a>  
-            <a href="https://www.twitter.com/ruralia/"><img src="../imaxes/twitter.png" title="Twitter" width="32" height="32"></a>
-            <a href="https://www.instagram.com/ruralia/"><img src="../imaxes/instagram.png" title="Instagram" width="32" height="32"></a>
-            <p> Ruralia © - Tódolos dereitos reservados </p>
-        </footer>
-
+            
+            <p id="p_redes">
+                <a href="https://www.facebook.com/ruralia/"><img src="../imaxes/facebook.png" title="Facebook" width="32" height="32"></a>  
+                <a href="https://www.twitter.com/ruralia/"><img src="../imaxes/twitter.png" title="Twitter" width="32" height="32"></a>
+                <a href="https://www.instagram.com/ruralia/"><img src="../imaxes/instagram.png" title="Instagram" width="32" height="32"></a>
+            </p>
+                
+            <p id="p_copyright"> Ruralia © - Tódolos dereitos reservados </p>
+        </div>
+        
+        </div>
+        
     </body>
-
+    
 </html>
-  
