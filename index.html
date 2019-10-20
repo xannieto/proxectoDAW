@@ -10,141 +10,219 @@
         <meta name="description" content="A túa casa rural" >
 
         <title> Ruralia </title>
-        <link rel="stylesheet" media="screen" href="principal.css">
+        <link rel="stylesheet" media=screen href="./css/bootstrap-grid.css">
+        <link rel="stylesheet" media=screen href="./css/principal.css">
+        <link rel="stylesheet" media=screen href="./css/sliders.css">
+        <script src="./js/jquery-3.4.1.min.js"></script>
+        <script src="./js/popper.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                /* barra de navegación fixada ao desprazar */
+                const sticky = $("#barra_navegacion").last().offset().top
+                $(window).scroll(function(){
+                    if ($(window).scrollTop() >= sticky) {
+                        $("#barra_navegacion").addClass("sticky");
+                    } else {
+                        $("#barra_navegacion").removeClass("sticky");
+                    }
+                });
+
+                $(window).resize(function(){
+                    if ($(window).width() > 700 && $("nav > ul > li").css("display") == "none"){
+                        $("nav > ul > li").css("display","block");
+                    } else if ($(window).width() <= 700 && $("nav > ul > li").css("display") == "block"){
+                        $("nav > ul > li").css("display","none");
+                    }
+                });
+
+                $("#boton_menu").click(function(){
+                    if ($("nav > ul > li").css("display") == "block" ){
+                        $("nav > ul > li").css("display","none");
+                    } else {
+                        $("nav > ul > li").css("display","block");
+                    }
+                });
+
+                
+            });
+        </script>
     </head> 
     
-    <body>
-        <div class="colector">
-
-        <div class="cabeceira" role="header">
-
-
-        <div class=imaxe-cabeceira>
-            <a href="./index.html">    
-                <img src="./imaxes/logo.svg" width="256" height="65" title="Ruralia logotipo">
-            </a>
-        </div>
-        
-        <nav>
-            <ul>
-                <li> <a href="./index.html"> Sobre nós </a> </li>
-                <li> <a href="./instalacions/instalacions.html"> Instalacións </a>
-                <ul>
-                    <li> <a href="./instalacions/historia.html"> Historia </a> </li>
-                    <li> <a href="./instalacions/vinha.html"> A viña </a> </li>
-                    <li> <a href="./instalacions/xardins.html"> Xardíns </a> </li>
-                    <li> <a href="./instalacions/lareira.html"> Lareira </a> </li>
-                    <li> <a href="./instalacions/comedor.html"> Comedor </a> </li>
-                    <li> <a href="./instalacions/habitacions.html"> Habitacións </a></li>
-                </ul>
-                </li>
-            
-                <li> <a href="./gastronomia/gastronomia.html"> Gastronomía </a>
-                <ul>
-                    <li> <a href="./gastronomia/comida.html"> Comida </a> </li>
-                    <li> <a href="./gastronomia/bebida.html"> Bebida </a> </li>
-                </ul>
-                </li>
-
-                <li>
-                    <a href="./lecer/lecer.html"> Lecer </a>
-                </li>
-    
-                <li id="li_info"> <a href="./contacto/contacto.html"> Contacto e información </a>
-                <ul>
-                    <li> <a href="./contacto/info_contacto.html"> Horarios e telefono </a> </li>
-                    <li> <a href="./contacto/formulario_reserva.html"> Realizar reserva </a> </li>
-                    <li> <a href="./contacto/modificar_reserva.html"> Modificar unha reserva </a> </li>
-                    <li> <a href="./contacto/eliminar_reserva.html"> Eliminar unha reserva </a> </li>
-                </ul>
-                </li>
-            </ul>
-        </nav>
-        
-        </div>
-
-        <div class="seccion-esquerda">
-            <!-- baleira -->
-        </div>
-
-        <div class="seccion-central">
-        
-            <h1> Sobre nós </h1>
-
-            <div class="artigo" role="article">
-                    <h2>Quen somos? </h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec magna felis, finibus ut mauris vel,
-                        vulputate posuere orci. Donec aliquam non tortor vel luctus. Morbi tincidunt tellus vitae urna ultrices,
-                        lacinia rutrum eros tristique. Vivamus sit amet dignissim mauris. Curabitur fringilla facilisis enim,
-                        at feugiat diam dapibus ut. Suspendisse cursus vestibulum ex, ut rutrum purus rutrum in. Duis consequat
-                        aliquet lorem, non maximus tortor luctus ut. Maecenas sit amet lorem id diam egestas porttitor commodo quis purus.
-                        Nunc eget orci non justo convallis blandit in at enim. Pellentesque mauris arcu, feugiat nec tristique vitae, semper a nunc.
-                        Integer varius convallis elit, vitae dictum risus gravida sed. Nunc blandit orci nulla, sed malesuada lectus tempor ut.
-                    </p>
-
-                    <p><i> En construción... </i></p>
-                
-            </div>
-            
-            <div class="artigo" role="article">
-
-                    <h2> Coñécenos! </h2>
-
-                    <p id="p_galeria">
-
-                    <div class="galeria">
-                        <a  href="./instalacions/instalacions.html">
-                            <img src="imaxes/instalacions.jpg" alt="Instalacións" width="200" height="150">
+    <body class="container-fluid">
+        <header class="row">
+            <figure class="col-12 imaxe-cabeceira">
+                <a href="#">
+                    <img src="./imaxes/logo.svg" alt="Logotipo Ruralia" width="256" height="65">
+                </a>
+            </figure>
+            <nav class="col-12" id="barra_navegacion">
+                <div class="menu-hamburguesa">
+                    <a href="javascript:void(0);" id="boton_menu">
+                    <figure class="imaxe-menu-hamburguesa">
+                        <img src="./imaxes/menu_hamburguesa.svg" width="32">
+                    </figure>
+                    <h1>Menú</h1>
+                    </a>
+                </div>
+                <ul class="menu-principal">
+                    <li>
+                        <a href="#"> Sobre nós </a>
+                    </li>
+                    <li>
+                        <a href="./recursos/instalacions.html">
+                            Instalacións
                         </a>
-                        <div class="descricion">As instalacións</div>
+                        <ul class="submenu">
+                            <li> <a href="./recursos/historia.html"> Historia </a> </li>
+                            <li> <a href="./recursos/vinha.html"> A viña </a> </li>
+                            <li> <a href="./recursos/xardins.html"> Xardíns </a> </li>
+                            <li> <a href="./recursos/lareira.html"> Lareira </a> </li>
+                            <li> <a href="./recursos/comedor.html"> Comedor </a> </li>
+                            <li> <a href="./recursos/habitacions.html"> Habitacións </a> </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="./recursos/gastronomia.html">
+                            Gastronomía
+                        </a>
+                        <ul class="submenu">
+                            <li> <a href="./recursos/comida.html"> Comida </a> </li>
+                            <li> <a href="./recursos/bebida.html"> Bebida </a> </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="./recursos/lecer.html">
+                            Lecer
+                        </a>
+                    </li>
+                    <li id="li_info" >
+                        <a href="./recursos/contacto.html">
+                            Contacto
+                        </a>
+                        <ul class="submenu">
+                            <li> <a href="./recursos/info_contacto.html"> Horarios e teléfono </a> </li>
+                            <li> <a href="./recursos/formulario_reserva.html"> Realizar reserva </a> </li>
+                            <li> <a href="./recursos/modificar_reserva.html"> Modificar reserva </a> </li>
+                            <li> <a href="./recursos/eliminar_reserva.html"> Eliminar reserva </a> </li>
+                        </ul>   
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="row">  
+            <h1 class="col-12 titulo"> Sobre nós </h1> 
+            <article class="col-sm-12 col-md-10 artigo">
+                <h2>Quen somos? </h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec magna felis, finibus ut mauris vel,
+                    vulputate posuere orci. Donec aliquam non tortor vel luctus. Morbi tincidunt tellus vitae urna ultrices,
+                    lacinia rutrum eros tristique. Vivamus sit amet dignissim mauris. Curabitur fringilla facilisis enim,
+                    at feugiat diam dapibus ut. Suspendisse cursus vestibulum ex, ut rutrum purus rutrum in. Duis consequat
+                    aliquet lorem, non maximus tortor luctus ut. Maecenas sit amet lorem id diam egestas porttitor commodo quis purus.
+                    Nunc eget orci non justo convallis blandit in at enim. Pellentesque mauris arcu, feugiat nec tristique vitae, semper a nunc.
+                    Integer varius convallis elit, vitae dictum risus gravida sed. Nunc blandit orci nulla, sed malesuada lectus tempor ut.
+                </p>
+                <p>
+                    <i> En construción... </i>
+                </p> 
+            </article>
+
+            <article  class="col-sm-12 col-md-10 artigo">
+                <h2> Coñécenos! </h2>
+
+                <!-- Slideshow container -->
+                <div class="slideshow-container">
+
+                    <!-- Full-width images with number and caption text -->
+                    <div class="mySlides fade">
+                    <div class="numbertext">1 / 4</div>
+                    <a href="./recursos/instalacions.html">
+                        <img src="./imaxes/instalacions.jpg" style="width:100%">
+                        <div class="text">As instalacións</div>
+                    </a>
+                    </div>
+                
+                    <div class="mySlides fade">
+                    <div class="numbertext">2 / 4</div>
+                    <a href="./recursos/gastronomia.html">
+                        <img src="./imaxes/comida.jpg" style="width:100%">
+                        <div class="text"> A gastronomía </div>
+                    </a>
+                    </div>
+                
+                    <div class="mySlides fade">
+                    <div class="numbertext">3 / 4</div>
+                    <a href="./recursos/lecer.html">
+                        <img src="./imaxes/lecer.jpg" style="width:100%">
+                        <div class="text">Lecer</div>
+                    </a>
                     </div>
 
-                    <div class="galeria">
-                        <a  href="./gastronomia/gastronomia.html">
-                            <img src="imaxes/comida.jpg" alt="Gastronomía" width="200" height="150">
-                        </a>
-                        <div class="descricion">A nosa gastronomía</div>
+                    <div class="mySlides fade">
+                    <div class="numbertext">4 / 4</div>
+                    <a href="./recursos/contacto.html">
+                        <img src="./imaxes/contacto.jpg" style="width:100%">
+                        <div class="text">Contacto</div>
+                    </a>
                     </div>
-
-                    <div class="galeria">
-                        <a  href="./lecer/lecer.html">
-                            <img src="imaxes/lecer.jpg" alt="Lecer" width="200" height="150">
-                        </a>
-                        <div class="descricion">Lecer</div>
-                    </div> 
-
-                    <div class="galeria">
-                        <a  href="./contacto/contacto.html">
-                            <img src="imaxes/contacto.jpg" alt="Lecer" width="200" height="150">
-                        </a>
-                        <div class="descricion">Contáctanos</div>
-                    </div> 
-
-                    </p>
-            </div>
-
-        </div>
-
-        <div class="seccion-dereita">
-            <!-- baleira  -->
-        </div>
-
-        
-        <div class="pe-paxina" role="banner">
-            <h1> Síguenos nas nosas redes sociais!</h1>
-            
-            <p id="p_redes">
-                <a href="https://www.facebook.com/ruralia/"><img src="./imaxes/facebook.png" title="Facebook" width="32" height="32"></a>  
-                <a href="https://www.twitter.com/ruralia/"><img src="./imaxes/twitter.png" title="Twitter" width="32" height="32"></a>
-                <a href="https://www.instagram.com/ruralia/"><img src="./imaxes/instagram.png" title="Instagram" width="32" height="32"></a>
-            </p>
                 
-            <p id="p_copyright"> Ruralia © - Tódolos dereitos reservados </p>
-        </div>
-        
-        </div>
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+                <!-- The dots/circles -->
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                </div> 
+            </article>
+        </section>
 
+        <section class="row">
+            <footer class="col-md-12 col-sm-12 pe-paxina">
+                <h1> Síguenos nas nosas redes sociais!</h1>
+                <p>
+                    <a href="https://www.facebook.com/ruralia/"><img src="./imaxes/facebook.png" title="Facebook" width="32" height="32"></a>  
+                    <a href="https://www.twitter.com/ruralia/"><img src="./imaxes/twitter.png" title="Twitter" width="32" height="32"></a>
+                    <a href="https://www.instagram.com/ruralia/"><img src="./imaxes/instagram.png" title="Instagram" width="32" height="32"></a>
+                </p>
+                    
+                <p class="font-italic"> Ruralia © - Tódolos dereitos reservados </p>
+            </footer>
+        </section>
+        <script type="text/javascript"> 
+            var slideIndex = 1;
+            showSlides(slideIndex);
+            
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+            
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+            
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {slideIndex = 1}    
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";  
+                dots[slideIndex-1].className += " active";
+            }
+        </script>
     </body>
-
 </html>
