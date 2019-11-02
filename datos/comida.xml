@@ -1,0 +1,32 @@
+<?xml version= "1.0" encoding="UTF-8"?>
+
+<artigos>
+    <article> 
+        <h2> Tortilla </h2>
+        <imaxe>tortilla.jpg</imaxe>
+        <descricion> Tortilla de pataca </descricion>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec magna felis, finibus ut mauris vel,
+            vulputate posuere orci. Donec aliquam non tortor vel luctus. Morbi tincidunt tellus vitae urna ultrices,
+            lacinia rutrum eros tristique. Vivamus sit amet dignissim mauris. Curabitur fringilla facilisis enim,
+            at feugiat diam dapibus ut. Suspendisse cursus vestibulum ex, ut rutrum purus rutrum in. Duis consequat
+            aliquet lorem, non maximus tortor luctus ut. Maecenas sit amet lorem id diam egestas porttitor commodo quis purus.
+            Nunc eget orci non justo convallis blandit in at enim. Pellentesque mauris arcu, feugiat nec tristique vitae, semper a nunc.
+            Integer varius convallis elit, vitae dictum risus gravida sed. Nunc blandit orci nulla, sed malesuada lectus tempor ut.
+        </p>
+    </article>
+    <article>
+        <h2>Cocido de Galicia</h2>
+        <imaxe>comida1.jpg</imaxe>
+        <descricion> Cocido </descricion>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec magna felis, finibus ut mauris vel,
+            vulputate posuere orci. Donec aliquam non tortor vel luctus. Morbi tincidunt tellus vitae urna ultrices,
+            lacinia rutrum eros tristique. Vivamus sit amet dignissim mauris. Curabitur fringilla facilisis enim,
+            at feugiat diam dapibus ut. Suspendisse cursus vestibulum ex, ut rutrum purus rutrum in. Duis consequat
+            aliquet lorem, non maximus tortor luctus ut. Maecenas sit amet lorem id diam egestas porttitor commodo quis purus.
+            Nunc eget orci non justo convallis blandit in at enim. Pellentesque mauris arcu, feugiat nec tristique vitae, semper a nunc.
+            Integer varius convallis elit, vitae dictum risus gravida sed. Nunc blandit orci nulla, sed malesuada lectus tempor ut.
+        </p>
+    </article>
+</artigos>
+
+

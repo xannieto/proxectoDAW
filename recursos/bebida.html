@@ -14,6 +14,7 @@
         <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="../js/popper.min.js"></script>
         <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/angular.min.js"></script>
 
         <script>
             $(document).ready(function(){
@@ -42,8 +43,6 @@
                         $("nav > ul > li").css("display","block");
                     }
                 });
-
-                
             });
         </script>
     </head> 
@@ -110,39 +109,18 @@
             </nav>
         </header>
 
-        <section class="row">
+        <section class="row" ng-app="minhaAplicacion" ng-controller="meuControlador">
             <h1 class="col-12 titulo"> As bebidas </h1> 
-            <article class="col-sm-10 col-md-10 artigo">
 
-                <h2>Viños</h2>
-
-                <h3>O tinto de Ruralia</h3>
-
-                <p>
-                    <div class="galeria">
-                        <a  href="../imaxes/tinto.jpg">
-                            <img src="../imaxes/tinto.jpg" alt="Tinto" width="200" height="150">
-                        </a>
-                        <div class="descricion"> Tinto da casa </div>
-                    </div>
-                </p>
-
-                <p><i> En construción... </i></p>
-            </article>
-
-            <article class="col-sm-10 col-md-10 artigo">
-                <h2>Sidra</h2>
-                <p><i> En construción...</i></p>
-            </article>
-
-            <article class="col-sm-10 col-md-10 artigo">
-                <h2>Licores</h2>
-                <p><i> En construción... </i></p>
-            </article>
-
-            <article class="col-sm-10 col-md-10 artigo">
-                <h2>Outras</h2>
-                <p><i>En construción...</i></p>
+            <article class="col-sm-10 col-md-10 artigo" ng-repeat="d in datos">
+                <h2>{{d.titulo}}</h2>
+                <div class="galeria">
+                    <a href="../imaxes/{{d.imaxe}}">
+                        <img src="../imaxes/{{d.imaxe}}" width="200" height="150">
+                    </a>
+                    <div class="descricion">{{d.descricion}}</div>
+                </div>
+                <p>{{d.paragrafo}}</p>
             </article>
                 
         </section>
@@ -160,6 +138,15 @@
                 <p class="font-italic"> Ruralia © - Tódolos dereitos reservados </p>
             </footer>
         </section>
+        <script>
+        /* angularJS */
+        var app = angular.module('minhaAplicacion', []);
+        app.controller('meuControlador', function($scope, $http) {
+            $http.get("../datos/bebidas.json").then(function (response) {
+                $scope.datos = response.data.artigos;
+            });
+        });
+    </script>
     </body>
 </html>
 

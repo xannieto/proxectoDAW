@@ -14,7 +14,8 @@
         <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="../js/popper.min.js"></script>
         <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-
+        
+        
         <script>
             $(document).ready(function(){
                 /* barra de navegación fixada ao desprazar */
@@ -110,41 +111,8 @@
             </nav>
         </header>
 
-        <section class="row">
+        <section class="row" id="inserir_contido">
             <h1 class="col-12 titulo"> A comida </h1> 
-            <article class="col-sm-10 col-md-10 artigo">
-                <h2> Tortilla </h2>
-                <p>
-                    <div class="galeria">
-                        <a  href="../imaxes/tortilla.jpg">
-                            <img src="../imaxes/tortilla.jpg" alt="Bebida" width="200" height="150">
-                        </a>
-                        <div class="descricion"> Tortilla </div>
-                    </div>
-                </p>
-            
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec magna felis, finibus ut mauris vel,
-                    vulputate posuere orci. Donec aliquam non tortor vel luctus. Morbi tincidunt tellus vitae urna ultrices,
-                    lacinia rutrum eros tristique. Vivamus sit amet dignissim mauris. Curabitur fringilla facilisis enim,
-                    at feugiat diam dapibus ut. Suspendisse cursus vestibulum ex, ut rutrum purus rutrum in. Duis consequat
-                    aliquet lorem, non maximus tortor luctus ut. Maecenas sit amet lorem id diam egestas porttitor commodo quis purus.
-                    Nunc eget orci non justo convallis blandit in at enim. Pellentesque mauris arcu, feugiat nec tristique vitae, semper a nunc.
-                    Integer varius convallis elit, vitae dictum risus gravida sed. Nunc blandit orci nulla, sed malesuada lectus tempor ut.
-                </p>
-            
-                <h2> Cocido </h2>
-                <p>
-                    <div class="galeria">
-                        <a href="../imaxes/comida1.jpg">
-                            <img src="../imaxes/comida1.jpg" alt="Bebida" width="200" height="150">
-                        </a>
-                        <div class="descricion"> Cocido </div>
-                    </div>
-                </p>
-            
-                <p><i>En construcción...</i></p>
-            </article>  
         </section>
 
         <section class="row">
@@ -160,6 +128,72 @@
                 <p class="font-italic"> Ruralia © - Tódolos dereitos reservados </p>
             </footer>
         </section>
+        <script>
+            window.onload = cargarArtigo();
+
+            function cargarArtigo(){
+                var datos = new XMLHttpRequest();
+
+                datos.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200 ) {
+                        var i;
+                        var xmlDoc = datos.responseXML;
+                        
+                        var x = xmlDoc.getElementsByTagName("article");
+                        for ( i = 0; i < x.length; i++ ){
+                            var artigo = document.createElement("article");
+                            var titulo = x[i].getElementsByTagName("h2")[0].childNodes[0].nodeValue;
+                            var contido = x[i].getElementsByTagName("p")[0].childNodes[0].nodeValue;
+                            var imaxe = x[i].getElementsByTagName("imaxe")[0].childNodes[0].nodeValue;
+                            var desc = x[i].getElementsByTagName("descricion")[0].childNodes[0].nodeValue;
+
+                            artigo.classList.add("col-sm-12");
+                            artigo.classList.add("col-md-10");
+                            artigo.classList.add("artigo");
+
+                            var nTitulo = document.createElement("h2");
+                            var nContido = document.createElement("p");
+                            var nImaxe = construirImaxe(imaxe, desc);
+
+                            nTitulo.appendChild(document.createTextNode(titulo));
+                            nContido.appendChild(document.createTextNode(contido));
+
+                            artigo.appendChild(nTitulo);
+                            artigo.appendChild(nImaxe);
+                            artigo.appendChild(nContido);
+                            
+                            document.getElementById("inserir_contido").appendChild(artigo);
+                        }
+                        
+                    }
+                };
+                datos.open("GET","../datos/comida.xml", true);
+                datos.send();
+            }
+
+            function construirImaxe(imaxe, desc){
+                var nGaleria = document.createElement("div");
+                nGaleria.classList.add("galeria");
+
+                var nLigazon = document.createElement("a");
+                nLigazon.href = "../imaxes/" + imaxe;
+                var nImaxe = document.createElement("img");
+                nImaxe.src = "../imaxes/" + imaxe;
+                nImaxe.width = "200";
+                nImaxe.height = "150";
+
+                var nDescricion = document.createElement("div");
+                nDescricion.classList.add("descricion");
+                nDescricion.appendChild(document.createTextNode(desc));
+
+
+                nLigazon.appendChild(nImaxe);
+                nGaleria.appendChild(nLigazon);
+                nGaleria.appendChild(nDescricion);
+
+                return nGaleria;
+            }
+        </script>
     </body>
 </html>
     
