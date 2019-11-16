@@ -115,7 +115,21 @@
             <h1 class="col-12 titulo"> Realizar unha reserva </h1> 
             <article class="col-sm-10 col-md-10 artigo">
                 <h2> Cubra o seguinte formulario </h2>
-                <form action="modificar_reserva.html">
+                <form action="../servletDaw" method="POST" name="rexistro">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="in_nome" required>
+
+                    <label for="apelidos">Apelidos</label>
+                    <input type="text" name="apelidos" id="in_apelidos" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="in_email">
+
+                    <input type="reset" name="reset" id="reset" value="Borrar todo">
+                    <input type="submit" id="submit" name="submit" value="Rexistrarse">
+                </form>
+
+                <!--<form action="modificar_reserva.html">
                     <p>
                     <label for="tempo_instancia"> Duración da instancia </label>
                     <select name="tempo_instancia" id="tempo_instancia" required autofocus>
@@ -185,7 +199,7 @@
                     <input type="reset" name="reset" id="reset" value="Borrar todo">
                     <input type="submit" id="submit" name="submit" value="Reservar">
                     </p>
-                </form>
+                </form>-->
             </article>  
         </section>
 

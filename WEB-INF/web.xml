@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app>
+    <display-name>Práctica 6 de DAW</display-name>
+    <description>Exercicio de Servlets</description>
+
+    <servlet> 
+        <servlet-name>Servlet Daw</servlet-name>
+        <servlet-class>servletdaw.servletDaw</servlet-class>
+        
+        <init-param>
+            <param-name>usuario</param-name>
+            <param-value>xan</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>contrasinal</param-name>
+            <param-value>07131024</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>urlP</param-name>
+            <param-value>jdbc:mariadb://localhost:3306/bd_alumnos</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>urlA</param-name>
+            <param-value>jdbc:mariadb://127.0.0.1:3306/nietoGarcia</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Servlet Daw</servlet-name>
+        <url-pattern>/servletDaw</url-pattern>
+    </servlet-mapping>
+    
+</web-app>

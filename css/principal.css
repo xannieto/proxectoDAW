@@ -1,0 +1,269 @@
+/* xeralidades */
+* {
+    padding: 0vw;
+    margin: 0vw;
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* tipografia importada */
+@font-face {
+    font-family: 'Montserrat Alternates';
+    src: url('../tipografias/MontserratAlternates-Regular.ttf');
+}
+
+/* CABECEIRA */
+
+header {
+    width: auto;
+    background: url('../imaxes/vinha.png') top no-repeat;
+}
+
+.imaxe-cabeceira {
+    padding: 2em;
+    text-align: center;
+}
+
+
+/* MENU */
+/* xeral */
+
+nav {
+    background: rgba(74, 102, 35, 1);
+}
+
+nav ul{
+    list-style: none;
+    padding: 0em;
+}
+
+nav li {
+    line-height: 2.5em; 
+    position: relative;
+}
+
+nav li ul {
+    position: absolute;
+}
+
+nav a {
+    text-decoration: none;
+    color: #B0F252;
+    font-family: 'Montserrat Alternates';
+    font-weight: bold;
+    display: block;
+    padding: 0 1em;
+    transition: 400ms;
+}
+
+nav a:hover {
+    background: rgba(176, 242, 82, 0.5);
+}
+
+nav ul ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+}
+
+
+nav li:hover ul {
+    display: block;
+    clear: both;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    float: left;
+    clear: both;
+    z-index: 1000;
+}
+
+.sticky + section:first {
+    padding-top: 6em;
+}
+
+/* contacto */
+#li_info {
+    float: right;
+}
+
+#li_info ul {
+    right: 0;
+    left: auto;
+}
+
+/* primeiro nivel */
+
+nav > ul {
+    background: rgba(74, 102, 35, 1);
+    display: table;
+    width: 100%;
+}
+
+nav > ul > li {
+    float: left;
+}
+
+
+/* segundo nivel */
+nav li li {
+    background: rgb(100, 145, 59);
+    color: whitesmoke;
+    width: 15em;
+}
+
+.menu-hamburguesa {
+    display: none;
+}
+
+
+@media only screen and (max-width: 700px) {
+    nav > ul > li {
+        text-align: center;
+        display: none;
+        width: 100%;
+        background: rgb(100, 145, 59);
+    }
+    
+    nav li:hover ul {
+        display: none;
+    }
+    
+    .menu-hamburguesa {
+        width: 100%;
+        padding: 0%;
+        margin: 0%;
+        display: block;
+    }
+    .menu-hamburguesa .imaxe-menu-hamburguesa {
+        height: 100%;
+        margin: 0%;
+        padding: 0%;
+        text-align: center;
+        width: 10%;
+        float: left;
+    }
+    
+    .menu-hamburguesa h1 {
+        text-align: center;
+        font-size: 1.8em;
+        height: 100%;
+        padding: 0%;
+        margin: 0%;
+        width: 100%;
+    }
+    
+    .menu-hamburguesa > a {
+        padding: 0%;
+    }
+    
+    .menu-hamburguesa img {
+        height: 2em;
+    }
+    
+    #barra_navegacion {
+        padding: 0%;
+    }
+    
+    .menu-hamburguesa:hover {
+        background: rgba(176, 242, 82, 0.5);
+        transition: 400ms;
+    }
+    
+}
+
+
+/* TEXTOS E TITULOS */
+
+h1,
+h2,
+h3 {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.titulo {
+    background: green;
+    padding: 0.25em;
+    font-size: 4em;
+    margin: auto;
+    border-bottom: 0.15em solid azure;
+}
+
+h2,
+h3 {
+    padding-bottom: 0.5em
+}
+
+p {
+    font-family: Verdana, sans-serif;
+    color: whitesmoke;
+    padding-bottom: 1em;
+}
+
+/* seccions e artigos */
+
+section {
+    background: rgba(134, 133, 99);
+    text-align: center;
+}
+
+article {
+    margin: auto;
+    border-left: 0.7em solid azure;
+    border-right: 0.7em solid azure;
+    border-bottom: 0.7em solid azure; 
+    padding: 2.5em 6em 2em 6em;
+    background: rgb(154, 199, 90);
+}
+/* imaxes */
+
+.galeria {
+  margin: 5px;
+  display: inline-block;
+  width: 200px;
+  background: rgb(100, 145, 59);
+}
+
+.galeria:hover {
+  border: 1px solid azure;
+  transition: 500ms;
+}
+
+.galeria img {
+  width: 100%;
+  height: 100%;
+}
+
+.descricion {
+  padding: 15px;
+  text-align: center;
+}
+
+
+/* PE DE PAXINA */
+
+.pe-paxina {
+    display: inline;
+    text-align: center;
+    padding: 2em;
+    background: #4A6623;
+    font-family: 'Montserrat Alternates';
+}
+
+#p_redes {
+    display: inline-block;
+    padding: 0em 0em 2em 0em;
+}
+
+#p_copyright {
+    font-style: italic;
+    font-size: 1em;
+}
