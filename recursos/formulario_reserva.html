@@ -10,8 +10,8 @@
 
         <title> Ruralia </title>
         <link rel="stylesheet" media=screen href="../css/bootstrap-grid.css">
-        <link rel="stylesheet" media=screen href="../css/formulario.css">
         <link rel="stylesheet" media=screen href="../css/principal.css">
+        <link rel="stylesheet" media=screen href="../css/formulario.css">
         <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="../js/popper.min.js"></script>
         <script type="text/javascript" src="../js/bootstrap.min.js"></script>
@@ -48,7 +48,7 @@
             });
         </script>
     </head> 
-    
+      
     <body class="container-fluid">
         <header class="row">
             <figure class="col-12 imaxe-cabeceira">
@@ -115,12 +115,12 @@
             <h1 class="col-12 titulo"> Realizar unha reserva </h1> 
             <article class="col-sm-10 col-md-10 artigo">
                 <h2> Cubra o seguinte formulario </h2>
-                <form action="../servletDaw" method="POST" name="rexistro">
+                <form action="../servletDaw" method="POST" name="rexistro" onsubmit="return validar();">
                     <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="in_nome" required>
+                    <input type="text" name="nome" id="in_nome">
 
                     <label for="apelidos">Apelidos</label>
-                    <input type="text" name="apelidos" id="in_apelidos" required>
+                    <input type="text" name="apelidos" id="in_apelidos">
 
                     <label for="email">Email</label>
                     <input type="email" name="email" id="in_email">
@@ -216,6 +216,39 @@
                 <p class="font-italic"> Ruralia © - Tódolos dereitos reservados </p>
             </footer>
         </section>
+        <script>
+            function validar() {
+                var nome, apelido, email;
+                var exp_email;
+                /* isNaN() para saber se un valor e un numero ou non*/
+
+                nome = document.getElementById("in_nome").value;
+                apelido = document.getElementById("in_apelido").value;
+                email = document.getElementById("in_email").value;
+                exp_email = new RegExp("^\w+@\w+\.[a-z]{2,}$","g");
+
+                if (nome === "" || apelido === "" || email === "") {
+                    alert("Tódolos campos son obrigatorios");
+                    return false;
+                
+                } else if (nome.length > 40 ) {
+                    alert("O nome é demasiado longo.");
+                    return false;
+                
+                } else if (apelido.length > 40 ) {
+                    alert("Os apelidos son demasiado longos.");
+                    return false;
+                
+                } else if (email.length > 40 ) {
+                    alert("O correo electrónico é demasiado longo.");
+                    return false;
+                } else if (!exp_email.test(email)){
+                    alert("Non proporcionou unha dirección de correo válida.");
+                    return false;
+                }
+                return true;
+            }
+        </script>
     </body>
 </html>
     
