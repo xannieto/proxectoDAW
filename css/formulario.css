@@ -1,14 +1,13 @@
-
 form {
   text-align: center;
 }
 
 input, select, .boton-cancelar {
-    padding: 0.5em;
-    margin-top: 0.25em;
-    margin-bottom: 1em;
-    width: 100%;
-    color: darkgreen;
+  padding: 0.5em;
+  margin-top: 0.25em;
+  margin-bottom: 1em;
+  width: 100%;
+  color: darkgreen;
 }
 
 select {

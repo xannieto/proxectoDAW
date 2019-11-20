@@ -48,7 +48,7 @@
             });
         </script>
     </head> 
-      
+
     <body class="container-fluid">
         <header class="row">
             <figure class="col-12 imaxe-cabeceira">
@@ -102,9 +102,8 @@
                         </a>
                         <ul class="submenu">
                             <li> <a href="./info_contacto.html"> Horarios e teléfono </a> </li>
-                            <li> <a href="./formulario_reserva.html"> Realizar reserva </a> </li>
-                            <li> <a href="./modificar_reserva.html"> Modificar reserva </a> </li>
-                            <li> <a href="./eliminar_reserva.html"> Eliminar reserva </a> </li>
+                            <li> <a href="./formulario_reserva.html"> Dar de alta</a> </li>
+                            <li> <a href="./modificar_reserva.html"> Rexistro </a> </li>
                         </ul>   
                     </li>
                 </ul>
@@ -112,94 +111,49 @@
         </header>
 
         <section class="row">
-            <h1 class="col-12 titulo"> Realizar unha reserva </h1> 
+            <h1 class="col-12 titulo"> Dar de alta </h1> 
             <article class="col-sm-10 col-md-10 artigo">
                 <h2> Cubra o seguinte formulario </h2>
-                <form action="../servletDaw" method="POST" name="rexistro" onsubmit="return validar();">
+                <form action="../servletdaw" method="POST" name="rexistro" onsubmit="return validar();">
                     <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="in_nome">
+                    <input type="text" name="nome" id="in_nome" placeholder="Escribe un nome..." required autofocus>
 
                     <label for="apelidos">Apelidos</label>
-                    <input type="text" name="apelidos" id="in_apelidos">
+                    <input type="text" name="apelidos" id="in_apelidos" placeholder="Escribe os apelidos..." required>
 
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="in_email">
+                    <input type="email" name="email" id="in_email" placeholder="Escribe un email (nome@dominio.com)..." required>
 
-                    <input type="reset" name="reset" id="reset" value="Borrar todo">
-                    <input type="submit" id="submit" name="submit" value="Rexistrarse">
-                </form>
+                    <label for="dni">DNI/NIF</label>
+                    <input type="text" name="dni" id="in_dni" placeholder="Escribe un DNI (00000000A)..." required>
 
-                <!--<form action="modificar_reserva.html">
-                    <p>
-                    <label for="tempo_instancia"> Duración da instancia </label>
-                    <select name="tempo_instancia" id="tempo_instancia" required autofocus>
-                        <option value="">Seleccione unha</option>
-                        <option value="1">1</option>
-                        <option value="3">3</option>
-                        <option value="5">5</option>
-                        <option value="7">7</option>
+                    <label for="estado_civil">Estado civil</label>
+                    <select name="estado_civil" id="in_estado_civil" required>
+                        <option value="">Seleccione unha...</option>
+                        <option value="solteiro">Solteiro/Solteira</option>
+                        <option value="casado">Casado/Casada</option>
+                        <option value="divorciado">Divorciado/Divorciada</option>
+                        <option value="viuvo">Viuvo/Viuva</option>
                     </select>
-            
-                    <label for="data_entrada"> Data comezo da instancia </label>
-                    <input type="date" name="data_entrada" id="data_entrada"
-                    required>
-            
-                    <label for="data_saida"> Data remate da instancia </label>
-                    Data fin de instancia : <input type="date" name="data_saida" id="data_saida"
-                    readonly>
-                    </p>
-            
-                    <p>
-                    <label for="nome"> Nome </label>
-                    <input type="text" name="nome" id="nome"
-                    required>
-            
-                    <label for="apelido1"> Apelido 1 </label>
-                    <input type="text" name="apelido1" id="apelido1"
-                    required>
-            
-                    <label for="apelido2"> Apelido 2 </label>
-                    <input type="text" name="apelido2" id="apelido2"
-                    required>
-                    </p>
-            
-                    <p>
-                    <label for="dni"> DNI</label>
-                    <input type="text" name="dni" id="dni"
-                    required>
-            
-                    <label for="telefono"> Teléfono </label>
-                    <input type="tel" name="telefono" id="telefono"
-                    required>
-            
-                    <label for="dir"> Dirección </label>
-                    <input type="text" name="dir" id="dir"
-                    required>
-                    </p>
-                    
-                    <p>
-                    <label for="num_persoas"> Número de persoas </label>
-                    <input type="number" name="num_persoas" id="num_persoas"
-                    min="1"
-                    max="7"
-                    step="1"
-                    value="1"
-                    required>
-            
-                    <label for="num_habitacions"> Número de habitacións </label>
-                    <input type="number" name="num_habitacions" id="num_habitacions"
-                    min="1"
-                    max="7"
-                    step="1"
-                    value="1"
-                    required>
-                    </p>
-                    
-                    <p>
+
+                    <label for="data_nacemento">Data de nacemento</label>
+                    <input type="date" name="data_nacemento" id="in_data_nacemento" required>
+
+                    <label for="provincia">Provincia</label>
+                    <input type="text" name="provincia" id="in_provincia" required>
+
+                    <label for="direccion">Dirección</label>
+                    <input type="text" name="direccion" id="in_direccion" required>
+
+                    <label for="codigo_postal">Código postal</label>
+                    <input type="text" name="codigo_postal" id="in_codigo_postal" required>
+
+                    <label for="numero_telefono">Teléfono de contacto</label>
+                    <input type="tel" name="numero_telefono" id="in_numero_telefono" required>
+
                     <input type="reset" name="reset" id="reset" value="Borrar todo">
-                    <input type="submit" id="submit" name="submit" value="Reservar">
-                    </p>
-                </form>-->
+                    <input type="submit" id="submit" name="submit" value="Dar de alta">
+                </form>
             </article>  
         </section>
 
@@ -218,16 +172,27 @@
         </section>
         <script>
             function validar() {
-                var nome, apelido, email;
-                var exp_email;
-                /* isNaN() para saber se un valor e un numero ou non*/
+                var nome, apelido, email, dni, estadoCivil, dataNacemento, provincia, direccion, codigoPostal, numTelefono;
+                var exp_nome, exp_email, exp_dni, exp_cod, exp_tel;
 
-                nome = document.getElementById("in_nome").value;
-                apelido = document.getElementById("in_apelido").value;
-                email = document.getElementById("in_email").value;
-                exp_email = new RegExp("^\w+@\w+\.[a-z]{2,}$","g");
+                nome = document.forms["rexistro"]["nome"].value;
+                apelido = document.forms["rexistro"]["apelidos"].value;
+                email = document.forms["rexistro"]["email"].value;
+                dni = document.forms["rexistro"]["dni"].value;
+                estadoCivil = document.forms["rexistro"]["estado_civil"].value;
+                dataNacemento = document.forms["rexistro"]["data_nacemento"].value;
+                provincia = document.forms["rexistro"]["provincia"].value;
+                direccion = document.forms["rexistro"]["direccion"].value;
+                codigoPostal = document.forms["rexistro"]["codigo_postal"].value;
+                numTelefono = document.forms["rexistro"]["numero_telefono"].value;
 
-                if (nome === "" || apelido === "" || email === "") {
+                exp_nome = /^[A-Za-z\s]+$/i
+                exp_email = /^[a-z0-9\-\.]+@[a-z0-9\-\.]+\.[a-z]{2,}$/i
+                exp_dni = /^[0-9]{8}[A-Z]$/i
+    
+
+                if (nome === "" || apelido === "" || email === "" || dni === "" || estadoCivil === "" || provincia === "" ||
+                    direccion === "" || codigoPostal === "" || numTelefono === "") {
                     alert("Tódolos campos son obrigatorios");
                     return false;
                 
@@ -242,10 +207,52 @@
                 } else if (email.length > 40 ) {
                     alert("O correo electrónico é demasiado longo.");
                     return false;
+
+                } else if (dni.length != 9 ) { 
+                    alert("O DNI non ten nove caracteres.");
+                    return false;
+
+                } else if (provincia.length > 22 || provincia.length < 4 ) {
+                    alert("Non existe unha provincia con ese número de caracteres.");
+                    return false;
+
+                } else if (direccion.length > 40 ){
+                    alert("Direccion demasiado longa.");
+                    return false;
+
+                } else if (codigoPostal.length != 5 ){
+                    alert("Lonxitude incorrecta do código postal.");
+                    return false;
+
+                } else if (numTelefono.length != 9 ) {
+                    alert("Lonxitude incorrecta do número de teléfono.");
+                    return false;
+                
+                } else if (!exp_nome.test(nome) || !exp_nome.test(apelido)) {
+                    alert("Non pode haber números nos nomes ou apelidos.");
+                    return false;
+                
+                } else if (!exp_dni.test(dni)){
+                    alert("Formato de DNI incorrecto.");
+                    return false;
+
+                } else if (!exp_nome.test(provincia)){
+                    alert("Non pode haber números nos nomes de provincias");
+                    return false;
+
+                } else if (isNaN(numTelefono)){
+                    alert("Debe proporcionar un número de teléfono válido.");
+                    return false;
+
+                } else if (isNaN(codigoPostal)){
+                    alert("Debe proporcionar un código postal válido.");
+                    return false;
+                
                 } else if (!exp_email.test(email)){
                     alert("Non proporcionou unha dirección de correo válida.");
                     return false;
                 }
+
                 return true;
             }
         </script>

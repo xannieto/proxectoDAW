@@ -5,16 +5,52 @@
     <description>Exercicio de Servlets</description>
 
     <servlet> 
-        <servlet-name>Servlet Daw</servlet-name>
+        <servlet-name>servletAlta</servlet-name>
         <servlet-class>servletdaw.servletDaw</servlet-class>
-        
+
         <init-param>
-            <param-name>usuario</param-name>
+            <param-name>driver</param-name>
+            <param-value>org.mariadb.jdbc.Driver</param-value>
+        </init-param>
+            
+        <init-param>
+            <param-name>usuarioP</param-name>
             <param-value>xan</param-value>
         </init-param>
 
         <init-param>
-            <param-name>contrasinal</param-name>
+            <param-name>contrasinalP</param-name>
+            <param-value>07131024</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>urlP</param-name>
+            <param-value>jdbc:mariadb://localhost:3306/bd_alumnos</param-value>
+        </init-param>
+
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>servletAlta</servlet-name>
+        <url-pattern>/servletdaw</url-pattern>
+    </servlet-mapping>
+
+    <servlet> 
+        <servlet-name>servletRexistro</servlet-name>
+        <servlet-class>rexistrodaw.rexistro</servlet-class>
+
+        <init-param>
+            <param-name>driver</param-name>
+            <param-value>org.mariadb.jdbc.Driver</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>usuarioP</param-name>
+            <param-value>xan</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>contrasinalP</param-name>
             <param-value>07131024</param-value>
         </init-param>
 
@@ -24,14 +60,34 @@
         </init-param>
 
         <init-param>
+            <param-name>usuarioA</param-name>
+            <param-value>xan</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>contrasinalA</param-name>
+            <param-value>07131024</param-value>
+        </init-param>
+
+        <init-param>
             <param-name>urlA</param-name>
-            <param-value>jdbc:mariadb://127.0.0.1:3306/nietoGarcia</param-value>
+            <param-value>jdbc:mariadb://localhost:3306/nietoGarcia</param-value>
         </init-param>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Servlet Daw</servlet-name>
-        <url-pattern>/servletDaw</url-pattern>
+        <servlet-name>servletRexistro</servlet-name>
+        <url-pattern>/rexistrodaw</url-pattern>
     </servlet-mapping>
+
+    <context-param>
+        <param-name>ligazon_rexistro</param-name>
+        <param-value>http://localhost:8080/nietoGarcia/recursos/modificar_reserva.html</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>ligazon_home</param-name>
+        <param-value>http://localhost:8080/nietoGarcia/index.html</param-value>
+    </context-param>
     
 </web-app>
