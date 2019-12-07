@@ -17,4 +17,15 @@ create table usuario (
     numero_telefono varchar(9)  not null,
     primary key (id,email)
 );
+
+create table produto (
+    id int(6) unsigned not null auto_increment,
+    nome varchar(40) not null,
+    descricion varchar(100) not null,
+    prezo float(10,2) unsigned not null,
+    cantidade int(3) unsigned not null,
+    constraint id_unico unique(id),
+    constraint nome_unico unique(nome),
+    primary key (id, nome)
+);
     

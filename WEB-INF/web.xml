@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <web-app>
-    <display-name>Práctica 6 de DAW</display-name>
+    <display-name>Práctica 7 de DAW</display-name>
     <description>Exercicio de Servlets</description>
 
     <servlet> 
@@ -81,6 +81,11 @@
     </servlet-mapping>
 
     <context-param>
+        <param-name>ligazon_sesion</param-name>
+        <param-value>http://localhost:8080/nietoGarcia/jsp/sesion.jsp</param-value>
+    </context-param>
+
+    <context-param>
         <param-name>ligazon_rexistro</param-name>
         <param-value>http://localhost:8080/nietoGarcia/recursos/modificar_reserva.html</param-value>
     </context-param>
@@ -90,4 +95,38 @@
         <param-value>http://localhost:8080/nietoGarcia/index.html</param-value>
     </context-param>
     
+    <servlet>
+        <servlet-name>sesionWeb</servlet-name>
+        <servlet-class>sesion.sesion</servlet-class>
+
+        <init-param>
+            <param-name>driver</param-name>
+            <param-value>org.mariadb.jdbc.Driver</param-value>
+        </init-param>
+            
+        <init-param>
+            <param-name>usuario</param-name>
+            <param-value>xan</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>contrasinal</param-name>
+            <param-value>07131024</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:mariadb://localhost:3306/nietoGarcia</param-value>
+        </init-param>
+
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>sesionWeb</servlet-name>
+        <url-pattern>/sesion</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
 </web-app>
