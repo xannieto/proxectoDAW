@@ -8,7 +8,7 @@ import aplicacion.Usuario;
 public final class UsuariosDAO extends AbstractDAO {
 
     public UsuariosDAO(Connection conexion){
-        this.setConexion(conexion);
+        super.setConexion(conexion);
     }
 
     public Integer darDeAltaBDAlumnos(String nome, String apelidos, String email, PrintWriter saida){
@@ -127,7 +127,7 @@ public final class UsuariosDAO extends AbstractDAO {
         return false;
     }
 
-    public Boolean verificarAcceso(String email, String contrasinal, PrintWriter saida){
+    public Usuario verificarAcceso(String email, String contrasinal, PrintWriter saida){
         Connection conexion;
         PreparedStatement stmUsuario = null;
         ResultSet rsUsuario;
@@ -135,13 +135,16 @@ public final class UsuariosDAO extends AbstractDAO {
         conexion = this.getConexion();
 
         try {
-            stmUsuario = conexion.prepareStatement("select email from usuario where email = ? and contrasinal = ?");
+            stmUsuario = conexion.prepareStatement("select nome, email, id from usuario where email = ? and contrasinal = ?");
             stmUsuario.setString(1, email);
             stmUsuario.setString(2, contrasinal);
 
             rsUsuario = stmUsuario.executeQuery();
 
-            return rsUsuario.next();/* devolve un boolean */
+            if (rsUsuario.next()){
+                return new Usuario(rsUsuario.getString("nome"), rsUsuario.getString("email"), String.valueOf(rsUsuario.getInt("id")));
+            
+            }
 
         } catch (SQLException e){
             saida.println("Problema de inserción SQL: " + e.getMessage());
@@ -151,7 +154,7 @@ public final class UsuariosDAO extends AbstractDAO {
             try { stmUsuario.close(); } catch (SQLException e) { e.printStackTrace(saida);} 
         }
 
-        return false;
+        return null;
     }
     
 }

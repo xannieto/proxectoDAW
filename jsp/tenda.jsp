@@ -1,19 +1,25 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ page language="java" import="javax.servlet.http.*" %>
+<%@page isELIgnored="false"%>
+
 <!DOCTYPE html>
 
 <html lang="gl">
-
     <head>
         <meta charset="UTF-8" >
         <meta name="keywords" content="casa, rural, turismo, gastronomia" >
         <meta name="author" content="Juan Carlos Nieto García" >
-        <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=3.0,minimum-scale=0.5">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A túa casa rural" >
 
         <title> Ruralia </title>
         <link rel="stylesheet" media=screen href="./css/bootstrap-grid.css">
-        <link rel="stylesheet" media=screen href="./css/principal.css">
         <link rel="stylesheet" media=screen href="./css/formulario.css">
-        <link rel="stylesheet" media=screen href="./css/sliders.css">
+        <link rel="stylesheet" media=screen href="./css/principal.css">
+        <link rel="stylesheet" meida=screen href="./css/tenda.css">
         <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="./js/popper.min.js"></script>
         <script type="text/javascript" src="./js/bootstrap.min.js"></script>
@@ -28,7 +34,7 @@
                     } else {
                         $("#barra_navegacion").removeClass("sticky");
                     }
-                });
+                    carreras criticas java });
 
                 $(window).resize(function(){
                     if ($(window).width() > 700 && $("nav > ul > li").css("display") == "none"){
@@ -46,6 +52,7 @@
                     }
                 });
 
+                
             });
         </script>
     </head> 
@@ -53,7 +60,7 @@
     <body class="container-fluid">
         <header class="row">
             <figure class="col-12 imaxe-cabeceira">
-                <a href="#">
+                <a href="./index.html">
                     <img src="./imaxes/logo.svg" alt="Logotipo Ruralia" width="256" height="65">
                 </a>
             </figure>
@@ -67,8 +74,18 @@
                     </a>
                 </div>
                 <ul class="menu-principal">
+                    <c:choose>
+                        <c:when test="${(!empty cookie.nome.value) and (!empty cookie.email.value)}">
+                            <li>
+                                <a> Ola, ${cookie.nome.value} </a>
+                                <ul class="submenu">
+                                    <li> <a href="./logout.jsp"> Pechar sesión </a> </li>
+                                </ul>
+                            </li>
+                        </c:when>
+                    </c:choose>
                     <li>
-                        <a href="#"> Sobre nós </a>
+                        <a href="./index.html"> Sobre nós </a>
                     </li>
                     <li>
                         <a href="./recursos/instalacions.html">
@@ -111,89 +128,58 @@
                             <li> <a href="./recursos/info_contacto.html"> Horarios e teléfono </a> </li>
                             <li> <a href="./recursos/formulario_reserva.html"> Dar de alta </a> </li>
                             <li> <a href="./recursos/modificar_reserva.html"> Rexistro </a> </li>
-                            <li> <a href="./recursos/login.html"> Login </a> </li>
+                            <li> <a href="./jsp/login.jsp"> Login </a> </li>
                         </ul>   
                     </li>
                 </ul>
             </nav>
         </header>
 
-        <section class="row">  
-            <h1 class="col-12 titulo"> Sobre nós </h1> 
-            <article class="col-sm-12 col-md-10 artigo">
-                <h2>Quen somos? </h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec magna felis, finibus ut mauris vel,
-                    vulputate posuere orci. Donec aliquam non tortor vel luctus. Morbi tincidunt tellus vitae urna ultrices,
-                    lacinia rutrum eros tristique. Vivamus sit amet dignissim mauris. Curabitur fringilla facilisis enim,
-                    at feugiat diam dapibus ut. Suspendisse cursus vestibulum ex, ut rutrum purus rutrum in. Duis consequat
-                    aliquet lorem, non maximus tortor luctus ut. Maecenas sit amet lorem id diam egestas porttitor commodo quis purus.
-                    Nunc eget orci non justo convallis blandit in at enim. Pellentesque mauris arcu, feugiat nec tristique vitae, semper a nunc.
-                    Integer varius convallis elit, vitae dictum risus gravida sed. Nunc blandit orci nulla, sed malesuada lectus tempor ut.
-                </p>
-                <p>
-                    <i> En construción... </i>
-                </p> 
+        <section class="row">
+            <h1 class="col-12 titulo"> Tenda </h1> 
+            <fmt:setLocale value="es_ES"/>
+
+            <article class="col-sm-10 col-md-10 artigo">
+                <form action="./compra" method="POST" name="form-carro" class="form-carro">                    
+                    <input type="hidden" name="opcion" value="verCarro">
+                    <input type="submit" name="submit" value="">
+                </form>
             </article>
 
-            <article  class="col-sm-12 col-md-10 artigo">
-                <h2> Coñécenos! </h2>
+            <c:forEach var="artigo" items="${sessionScope.stock}">
 
-                <!-- Slideshow container -->
-                <div class="slideshow-container">
+                <article class="col-sm-10 col-md-10 artigo">
+                    <figure class="imaxe-tenda">
+                        <img src="./imaxes/${artigo.imaxe}" alt="Logotipo Ruralia" width="350px">
+                    </figure>
 
-                    <!-- Full-width images with number and caption text -->
-                    <div class="mySlides fade">
-                    <div class="numbertext">1 / 4</div>
-                    <a href="./recursos/instalacions.html">
-                        <img src="./imaxes/instalacions.jpg" style="width:100%">
-                        <div class="text">As instalacións</div>
-                    </a>
-                    </div>
-                
-                    <div class="mySlides fade">
-                    <div class="numbertext">2 / 4</div>
-                    <a href="./recursos/gastronomia.html">
-                        <img src="./imaxes/comida.jpg" style="width:100%">
-                        <div class="text"> A gastronomía </div>
-                    </a>
-                    </div>
-                
-                    <div class="mySlides fade">
-                    <div class="numbertext">3 / 4</div>
-                    <a href="./recursos/lecer.html">
-                        <img src="./imaxes/lecer.jpg" style="width:100%">
-                        <div class="text">Lecer</div>
-                    </a>
-                    </div>
+                    <div class="tenda-texto">
+                        <h2> <c:out value="${artigo.nome}"/> </h2>
+                        <p> <strong> Descricion:</strong> <c:out value="${artigo.descricion}"/></p>
+                        <p> <strong> Prezo: </strong><fmt:formatNumber currencyCode="EUR" value = "${artigo.prezo}" type ="currency"/></p>
+                        <p> <strong> Cantidade dispoñíbel: </strong> <c:out value="${artigo.existencias}"/></p>
+                        
+                        
+                        <fmt:formatNumber value = "${balance}" type = "currency"/>
 
-                    <div class="mySlides fade">
-                    <div class="numbertext">4 / 4</div>
-                    <a href="./recursos/contacto.html">
-                        <img src="./imaxes/contacto.jpg" style="width:100%">
-                        <div class="text">Contacto</div>
-                    </a>
+                        <form action="./compra" method="POST" name="artigo">
+                            <label for="seleccion"> Selección: </label>
+                            <input type="number" name="seleccion" min="0" max="${artigo.existencias}" value="0">
+                            
+                            <input type="hidden" name="identificador" value="${artigo.id}">
+                            <input type="hidden" name="opcion" value="engadirArtigo">
+                            <input type="submit" name="submit" value="Engadir ao carriño">
+                        </form>
                     </div>
-                
-                    <!-- Next and previous buttons -->
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                </div>
-                <br>
-                <!-- The dots/circles -->
-                <div style="text-align:center">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                    <span class="dot" onclick="currentSlide(4)"></span>
-                </div> 
-            </article>
+                </article>
+            </c:forEach>
         </section>
 
         <section class="row">
             <footer class="col-md-12 col-sm-12 pe-paxina">
                 <h1> Síguenos nas nosas redes sociais!</h1>
-                <p>
+                
+                <p id="p_redes">
                     <a href="https://www.facebook.com/ruralia/"><img src="./imaxes/facebook.png" title="Facebook" width="32" height="32"></a>  
                     <a href="https://www.twitter.com/ruralia/"><img src="./imaxes/twitter.png" title="Twitter" width="32" height="32"></a>
                     <a href="https://www.instagram.com/ruralia/"><img src="./imaxes/instagram.png" title="Instagram" width="32" height="32"></a>
@@ -202,33 +188,6 @@
                 <p class="font-italic"> Ruralia © - Tódolos dereitos reservados </p>
             </footer>
         </section>
-        <script type="text/javascript"> 
-            var slideIndex = 1;
-            showSlides(slideIndex);
-            
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
-            }
-            
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-            
-            function showSlides(n) {
-                var i;
-                var slides = document.getElementsByClassName("mySlides");
-                var dots = document.getElementsByClassName("dot");
-                if (n > slides.length) {slideIndex = 1}    
-                if (n < 1) {slideIndex = slides.length}
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";  
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex-1].style.display = "block";  
-                dots[slideIndex-1].className += " active";
-            }
-        </script>
     </body>
 </html>
+    

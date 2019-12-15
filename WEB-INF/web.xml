@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <web-app>
-    <display-name>Práctica 7 de DAW</display-name>
-    <description>Exercicio de Servlets</description>
+    <display-name>Practica 7 de DAW</display-name>
+    <description>Inclusion dunha tenda</description>
 
     <servlet> 
         <servlet-name>servletAlta</servlet-name>
@@ -82,22 +82,32 @@
 
     <context-param>
         <param-name>ligazon_sesion</param-name>
-        <param-value>http://localhost:8080/nietoGarcia/jsp/sesion.jsp</param-value>
+        <param-value>jsp/sesion.jsp</param-value>
     </context-param>
 
     <context-param>
         <param-name>ligazon_rexistro</param-name>
-        <param-value>http://localhost:8080/nietoGarcia/recursos/modificar_reserva.html</param-value>
+        <param-value>recursos/modificar_reserva.html</param-value>
     </context-param>
 
     <context-param>
         <param-name>ligazon_home</param-name>
-        <param-value>http://localhost:8080/nietoGarcia/index.html</param-value>
+        <param-value>index.html</param-value>
     </context-param>
+
+    <context-param> 
+        <param-name>email_contacto</param-name>
+        <param-value>info.contacto@ruralia.com</param-value>
+    </context-param> 
+
+    <context-param> 
+        <param-name>telefono_contacto</param-name>
+        <param-value>986123456</param-value>
+    </context-param> 
     
     <servlet>
-        <servlet-name>sesionWeb</servlet-name>
-        <servlet-class>sesion.sesion</servlet-class>
+        <servlet-name>compraTenda</servlet-name>
+        <servlet-class>compra.compra</servlet-class>
 
         <init-param>
             <param-name>driver</param-name>
@@ -122,11 +132,12 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>sesionWeb</servlet-name>
-        <url-pattern>/sesion</url-pattern>
+        <servlet-name>compraTenda</servlet-name>
+        <url-pattern>/compra</url-pattern>
     </servlet-mapping>
 
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
+
 </web-app>

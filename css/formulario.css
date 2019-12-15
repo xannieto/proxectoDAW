@@ -72,3 +72,56 @@ input[type=reset]:active{
   color: whitesmoke;
   padding: 1.5em 12em; 
 }
+
+.form-tenda {
+  height: 2.5em;
+  align-content: center;
+  padding: 0%;
+  margin: 0%;
+  background: background: rgba(74, 102, 35, 1);
+}
+
+.form-tenda > input[type=submit]{
+  border: 0px;
+  color: #B0F252;
+  background: transparent;
+  font-family: 'Montserrat Alternates';
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  margin: 0%;
+  padding: 0 1em;
+}
+
+.form-tenda:hover {
+  background: rgba(176, 242, 82, 0.5);
+  transition: 400ms;
+}
+
+.form-botons {
+  width: auto;
+  padding: 0%;
+  margin: 0%;
+  float: right;
+  height: auto;
+  align-content: center;
+  padding: 0%;
+  margin: 0em 0.5em;
+  background: transparent;
+}
+
+.form-botons > input[type=submit]{
+  border: 0px;
+  color: #B0F252;
+  font-family: 'Montserrat Alternates';
+  font-weight: bold;
+  width: auto;
+  height: 2.5em;
+  font-size: 1em;
+  margin: 0%;
+  padding: 0em 1em;
+}
+
+
+

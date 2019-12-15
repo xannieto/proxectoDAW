@@ -7,13 +7,44 @@ public final class Artigo {
     private Double prezo;
     private Integer existencias;
     private Integer seleccion;
+    private String imaxe;
+    
+    public Artigo(){
+        this.setId("");
+        this.setNome("");
+        this.setDescricion("");
+        this.setPrezo(0.0);
+        this.setExistencias(0);
+        this.setSeleccion(0);
+        this.setImaxe("");
+    }
 
-    public Artigo(String id, String nome, String descricion, Double prezo, Integer existencias) {
+    public Artigo(String id, String nome, String descricion, Double prezo, Integer existencias, String imaxe) {
         this.setId(id);
         this.setNome(nome);
         this.setDescricion(descricion);
         this.setPrezo(prezo);
         this.setExistencias(existencias);
+        this.setSeleccion(0);
+        this.setImaxe(imaxe);
+    }
+
+    public Artigo(Artigo artigo){
+        this.setId(artigo.getId());
+        this.setNome(artigo.getNome());
+        this.setDescricion(artigo.getDescricion());
+        this.setPrezo(artigo.getPrezo());
+        this.setExistencias(artigo.getExistencias());
+        this.setSeleccion(artigo.getSeleccion());
+        this.setImaxe(artigo.getImaxe());
+    }
+
+    public String getImaxe(){
+        return imaxe;
+    }
+
+    public void setImaxe(String imaxe){
+        this.imaxe = imaxe;
     }
 
     public Integer getSeleccion() {
@@ -67,7 +98,7 @@ public final class Artigo {
     @Override
     public boolean equals(Object obj){
         if (obj instanceof Artigo){
-            return this.nome.equals(((Artigo)obj).getId());
+            return this.id.equals(((Artigo)obj).getId());
         }
         
         return false;

@@ -11,6 +11,7 @@
         <title> Ruralia </title>
         <link rel="stylesheet" media=screen href="../css/bootstrap-grid.css">
         <link rel="stylesheet" media=screen href="../css/principal.css">
+        <link rel="stylesheet" media=screen href="../css/formulario.css">
         <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="../js/popper.min.js"></script>
         <script type="text/javascript" src="../js/bootstrap.min.js"></script>
@@ -94,6 +95,12 @@
                             Lecer
                         </a>
                     </li>
+                    <li>
+                        <form action="../compra" method="POST" name="entrarTenda" class="form-tenda">
+                            <input type="hidden" id="opcion" name="opcion" value="iniciarCompra">
+                            <input type="submit" id="submit" name="submit" value="Tenda">
+                        </form>
+                    </li>
                     <li id="li_info" >
                         <a href="./contacto.html">
                             Contacto
@@ -102,6 +109,7 @@
                             <li> <a href="./info_contacto.html"> Horarios e teléfono </a> </li>
                             <li> <a href="./formulario_reserva.html"> Dar de alta</a> </li>
                             <li> <a href="./modificar_reserva.html"> Rexistro </a> </li>
+                            <li> <a href="./login.html"> Login </a> </li>
                         </ul>   
                     </li>
                 </ul>

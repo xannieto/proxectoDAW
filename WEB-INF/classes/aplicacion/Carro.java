@@ -23,21 +23,30 @@ public final class Carro {
         if (this.comprobarLista(artigo)){
             for (Artigo art : this.artigos){
                 if (art.equals(artigo)){
-                    art.setSeleccion(art.getSeleccion() + 1);
+                    art.setSeleccion(art.getSeleccion() + artigo.getSeleccion());
+                    return;
                 }
             }
-
         } else {
             this.artigos.add(artigo);
         }
     }
 
-    public void quitarArtigo(String artigo){
-        for (Artigo art : this.artigos){
-            if (art.getId().equals(artigo)){
-                
-            }
+    public void quitarArtigo(Artigo artigo){
+        this.artigos.remove(artigo);
+    }
+
+    public void quitarArtigo(Artigo artigo, Integer cantidade){
+        if (this.comprobarLista(artigo)){
+            for (Artigo art : this.artigos){
+                if (art.equals(artigo)){
+                    art.setSeleccion(art.getSeleccion() - cantidade);
+                    if (art.getSeleccion() <= 0) this.artigos.remove(art); 
+                    return;
+                }
+            } 
         }
+
     }
 
     private Boolean comprobarLista(Artigo artigo){

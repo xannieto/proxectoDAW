@@ -73,16 +73,6 @@
                         </a>
                     </div>
                     <ul class="menu-principal">
-                        <c:choose>
-                            <c:when test="${(!empty cookie.nome.value) and (!empty cookie.email.value)}">
-                                <li>
-                                    <a> Ola, ${cookie.nome.value} </a>
-                                    <ul class="submenu">
-                                        <li> <a href="./logout.jsp"> Pechar sesión </a> </li>
-                                    </ul>
-                                </li>
-                            </c:when>
-                        </c:choose>
                         <li>
                             <a href="../index.html"> Sobre nós </a>
                         </li>
@@ -127,7 +117,7 @@
                                 <li> <a href="../recursos/info_contacto.html"> Horarios e teléfono </a> </li>
                                 <li> <a href="../recursos/formulario_reserva.html"> Dar de alta </a> </li>
                                 <li> <a href="../recursos/modificar_reserva.html"> Rexistro </a> </li>
-                                <li> <a href="./login.jsp"> Login </a> </li>
+                                <li> <a href="login.jsp"> Login </a> </li>
                             </ul>   
                         </li>
                     </ul>
@@ -135,88 +125,23 @@
             </header>
 
         <section class="row">
-            <h1 class="col-12 titulo"> Login </h1> 
+            <h1 class="col-12 titulo"> Resultado </h1> 
             <article class="col-sm-10 col-md-10 artigo">    
-                <c:set var="email" value="${param.email}"/>
-                <c:set var="contrasinal" value="${param.contrasinal}"/>
+                <%
+                    Cookie[] ckArray = request.getCookies();
                 
-                <c:choose>
-                    <c:when test="${(empty email) and (empty contrasinal) and (!empty cookie.nome) and (!empty cookie.nome)}">
-                        <h2> Ola de novo, ${cookie.nome.value}</h2>
-                        <p> Pode continuar navegando pola nosa web e tamén, visitar a nosa tenda.</p>
-                    </c:when>
-                    <c:when test="${(empty email) and (empty contrasinal) and (empty cookie.nome) and (empty cookie.nome)}">
-                        <h2> Ocorreu un problema </h2>
-                        <p> Non hai ningunha sesión iniciada nin tampouco se recibiron datos para poder realizar un inicio de sesión</p>
-                    </c:when>
-                    <c:otherwise>
-                        <!-- realiza a consulta se non hai cookies e se hai parámetros de entrada -->
-                        
-                        <!--<sql:setDataSource var="bd"
-                        driver="com.mysql.jdbc.Driver"
-                        url= "jdbc:mysql://localhost:3306/nietogarcia"
-                        user= "nietoGarcia"
-                        password= "07131024" />-->
+                    if (ckArray != null){
+                        for (Cookie cookie : ckArray){
+                            if (cookie.getName().equals("nome") || cookie.getName().equals("email")){
+                                cookie.setMaxAge(0);
+                                response.addCookie(cookie);
+                            }
+                        }
+                    }
 
-                        <sql:setDataSource var="bd"
-                        driver="org.mariadb.jdbc.Driver"
-                        url= "jdbc:mariadb://localhost:3306/nietoGarcia"
-                        user= "xan"
-                        password="07131024"/>
-
-                        <sql:query var="consulta" dataSource="${bd}">
-                            select nome, email from usuario where email = ? and contrasinal = ?
-                            <sql:param value="${email}"/>
-                            <sql:param value="${contrasinal}"/>
-                        </sql:query>
-                        <c:if test="${consulta.rowCount != 0}">
-                            <c:forEach var="fila" items="${consulta.rows}">
-                                <c:choose>
-                                    <c:when test="${(empty cookie.nome.value) and (empty cookie.email.value)}">
-                                        <c:set var="nome" value="${fila.nome}"/>
-                                        <c:set var="email" value="${fila.email}"/>
-                                        <%
-                                        Cookie ckNome = new Cookie("nome", String.valueOf(pageContext.getAttribute("nome")));
-                                        Cookie ckEmail = new Cookie("email", String.valueOf(pageContext.getAttribute("email")));
-                                        ckNome.setMaxAge(60*30);
-                                        ckEmail.setMaxAge(60*30);
-                                        ckNome.setPath("/");
-                                        ckEmail.setPath("/");
-                                        response.addCookie(ckNome);
-                                        response.addCookie(ckEmail);
-                                        %>
-                                        <c:choose>
-                                            <c:when test="${empty sesionScope.carro}">
-                                                <h2> Ola, ${nome}</h2>
-                                                <p> Benvido a Ruralia, podes continuar nevegando pola nosa web e se lle apetece, pasar pola nosa tenda.</p>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <h2> Ola, ${nome}</h2>
-                                                <p> Podes voltar ao proceso de compra premendo no seguinte botón. </p>
-                                                <form action="../compra" method="POST" name="form-carro" class="form-compra">                    
-                                                    <input type="hidden" name="opcion" value="formalizarCompra">
-                                                    <input type="submit" name="submit" value="Volver á compra">
-                                                </form>
-                                            </c:otherwise>
-                                        </c:choose>    
-                                    </c:when>
-                                    <c:otherwise>
-                                        <h2> Ola de novo, ${cookie.nome.value}</h2>
-                                        <p> Podes continuar nevegando pola nosa web e se lle apetece, pasar pola nosa tenda.</p>
-                                    </c:otherwise>
-                                </c:choose>
-                            </c:forEach>
-                        </c:if>
-                        <c:if test="${(consulta.rowCount == 0) and (empty cookie.nome.value) and (empty cookie.email.value)}">
-                            <h2> Aviso importante </h2>
-                            <p> Vostede non está nin sequera rexistrado</p>
-                        </c:if>
-                        <c:if test="${(consulta.rowCount == 0) and (!empty cookie.nome.value) and (!empty cookie.email.value)}">
-                            <h2>Ola, ${cookie.nome.value}</h2>
-                            <p> Pode continuar navegando pola nosa web e tamén, visitar a nosa tenda.</p>
-                        </c:if>
-                    </c:otherwise>
-                </c:choose>
+                    out.println("<h2> Sesión finalizada exitosamente </h2>");
+                    out.println("<p> Prema na seguinte ligazón para voltar a <a href=\"../index.html\"> inicio</a> </p>");
+                %>
             </article>  
         </section>
         <section class="row">

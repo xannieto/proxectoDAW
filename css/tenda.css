@@ -1,0 +1,55 @@
+.imaxe-tenda {
+    width: 50%;
+    padding: 0%;
+    margin: 0%;
+    float: left;
+}
+
+.tenda-texto {
+    width: 50%;
+    padding: 0%;
+    margin: 0%;
+    float: left;
+}
+
+.form-carro > input[type=submit] {
+    border: none;
+    width: 64px;
+    height: 64px;
+    padding: 0%;
+    margin: 0 2em;
+    float: right;
+    background: url('../imaxes/cesta.svg') no-repeat;
+}
+
+th, td {
+    padding: 1em;
+}
+  
+.factura {
+    float: left;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: rgba(74, 102, 35, 1);
+}
+
+td {
+    background: rgb(100, 145, 59);
+}
+
+#id_voltar {
+    background: coral;
+    border: 2px solid firebrick;
+}
+
+#id_voltar:hover{
+    background: firebrick;
+}
+
+#id_rematar {
+    border: 2px solid rgba(74, 102, 35, 1);
+}
+  

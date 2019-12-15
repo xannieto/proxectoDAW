@@ -14,7 +14,17 @@ public final class Usuario {
     private String codigoPostal;
     private String numeroTelefono;
 
+    public Usuario(String email) {
+        this.setEmail(email);
+    }
+
     public Usuario(String email, String id) {
+        this.setEmail(email);
+        this.setId(id);
+    }
+
+    public Usuario(String nome, String email, String id) {
+        this.setNome(nome);
         this.setEmail(email);
         this.setId(id);
     }
