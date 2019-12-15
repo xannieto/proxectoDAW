@@ -128,7 +128,7 @@
                             <li> <a href="./recursos/info_contacto.html"> Horarios e teléfono </a> </li>
                             <li> <a href="./recursos/formulario_reserva.html"> Dar de alta </a> </li>
                             <li> <a href="./recursos/modificar_reserva.html"> Rexistro </a> </li>
-                            <li> <a href="./jsp/login.jsp"> Login </a> </li>
+                            <li> <a href="./recursos/login.html"> Login </a> </li>
                         </ul>   
                     </li>
                 </ul>
@@ -152,17 +152,17 @@
                     <tr>
                         <c:set var="prezoActual" value="${artigo.prezo*artigo.seleccion}" />
                         <td> <c:out value="${artigo.nome}"/> </td>
-                        <td> <fmt:formatNumber value = "${artigo.prezo}" currencyCode="EUR" type ="currency"/></td>
+                        <td> <fmt:formatNumber value = "${artigo.prezo}" currencySymbol="&euro;" type ="currency"/></td>
                         <td> <c:out value="${artigo.seleccion}"/> </td>
-                        <td> <fmt:formatNumber value="${prezoActual}" currencyCode="EUR" type="currency"/> </td>
-                        <td> <fmt:formatNumber value="${prezoActual*1.21}" currencyCode="EUR" type="currency"/> </td>
+                        <td> <fmt:formatNumber value="${prezoActual}" currencySymbol="&euro;" type="currency"/> </td>
+                        <td> <fmt:formatNumber value="${prezoActual*1.21}" currencySymbol="&euro;" type="currency"/> </td>
                         <c:set var="total" value="${total + prezoActual * 1.21}" />
                     </tr>
                     </c:forEach>
                     <tr>
                         <th> TOTAL </th>
                         <th colspan="3"> </th>
-                        <th> <fmt:formatNumber value="${total}" currencyCode="EUR" type="currency"/></th>
+                        <th> <fmt:formatNumber value="${total}" currencySymbol="&euro;" type="currency"/></th>
                     </tr>
                 </table>
             </article>

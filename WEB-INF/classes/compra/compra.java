@@ -57,14 +57,16 @@ public final class compra extends HttpServlet {
                 
             case "engadirArtigo":
                 artigo = fa.obterProduto(request.getParameter("identificador"), saida);
-            
-                if (artigo != null){
-                    Integer seleccion = Integer.valueOf(request.getParameter("seleccion"));
-                    artigo.setSeleccion(seleccion);
-                    artigo.setExistencias(artigo.getExistencias() - seleccion);
-                    carro.engadirArtigo(artigo);
-                } else {
-                    saida.println("Problema para atopar o artigo");
+
+                synchronized(sesion){
+                    if (artigo != null){
+                        Integer seleccion = Integer.valueOf(request.getParameter("seleccion"));
+                        artigo.setSeleccion(seleccion);
+                        artigo.setExistencias(artigo.getExistencias() - seleccion);
+                        carro.engadirArtigo(artigo);
+                    } else {
+                        saida.println("Problema para atopar o artigo");
+                    }
                 }
 
                 vista = request.getRequestDispatcher("jsp/tenda.jsp");
@@ -85,10 +87,12 @@ public final class compra extends HttpServlet {
                 Integer seleccion = Integer.valueOf(request.getParameter("seleccion"));
                 String id = request.getParameter("identificador");
                 
-                if (seleccion > 0){
-                    artigo = fa.obterProduto(id, saida);
-                    carro.quitarArtigo(artigo, seleccion);
-                    sesion.setAttribute("carro",carro);
+                synchronized(sesion){
+                    if (seleccion > 0){
+                        artigo = fa.obterProduto(id, saida);
+                        carro.quitarArtigo(artigo, seleccion);
+                        sesion.setAttribute("carro",carro);
+                    }
                 }
 
                 vista = request.getRequestDispatcher("jsp/carro.jsp");    
@@ -98,10 +102,11 @@ public final class compra extends HttpServlet {
             case "quitarTodoArtigoProblematico":
                 artigosProblematicos = (ArrayList<Artigo>)sesion.getAttribute("artigosProblematicos");
                 
-                for (Artigo art: artigosProblematicos){
-                    carro.quitarArtigo(art, art.getSeleccion() - art.getExistencias());
-                }
-
+                synchronized(carro){
+                    for (Artigo art: artigosProblematicos){
+                        carro.quitarArtigo(art, art.getSeleccion() - art.getExistencias());
+                    }
+                }   
                 vista = request.getRequestDispatcher("jsp/carro.jsp");    
                 vista.forward(request, response);
                 break;
@@ -141,23 +146,20 @@ public final class compra extends HttpServlet {
                         vista.forward(request, response);
                     } else {
                         Usuario usuario = new Usuario(email);
-                        fa.realizarCompra(carro, usuario, saida);
-                        
-                        
-                        
-                        String emailContacto = getServletContext().getInitParameter("email_contacto");
-                        String telefonoContacto = getServletContext().getInitParameter("telefono_contacto");
-
-                        Cookie ckEmail = new Cookie("email_contacto", emailContacto);
-                        Cookie ckTelefono = new Cookie("telefono_contacto", telefonoContacto);
-                        ckEmail.setMaxAge(60*30);
-                        ckTelefono.setMaxAge(60*30);
-                        ckEmail.setPath("/");
-                        ckTelefono.setPath("/");
-                        response.addCookie(ckEmail);
-                        response.addCookie(ckTelefono);
-
-                        if (sesion != null) sesion.invalidate();
+                        synchronized(sesion){
+                            fa.realizarCompra(carro, usuario, saida);
+                            
+                            
+                            
+                            String emailContacto = getServletContext().getInitParameter("email_contacto");
+                            String telefonoContacto = getServletContext().getInitParameter("telefono_contacto");
+    
+                            ServletContext aplicacion= request.getServletContext();
+                            aplicacion.setAttribute("email_contacto", emailContacto);
+                            aplicacion.setAttribute("telefono_contacto", telefonoContacto);
+                            
+                            if (sesion != null) sesion.invalidate();
+                        }
                         
                         vista = request.getRequestDispatcher("jsp/final.jsp");
                         vista.forward(request, response);

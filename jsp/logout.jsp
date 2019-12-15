@@ -117,7 +117,7 @@
                                 <li> <a href="../recursos/info_contacto.html"> Horarios e teléfono </a> </li>
                                 <li> <a href="../recursos/formulario_reserva.html"> Dar de alta </a> </li>
                                 <li> <a href="../recursos/modificar_reserva.html"> Rexistro </a> </li>
-                                <li> <a href="login.jsp"> Login </a> </li>
+                                <li> <a href="../recursos/login.html"> Login </a> </li>
                             </ul>   
                         </li>
                     </ul>

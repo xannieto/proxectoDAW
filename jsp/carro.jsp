@@ -128,7 +128,7 @@
                             <li> <a href="./recursos/info_contacto.html"> Horarios e teléfono </a> </li>
                             <li> <a href="./recursos/formulario_reserva.html"> Dar de alta </a> </li>
                             <li> <a href="./recursos/modificar_reserva.html"> Rexistro </a> </li>
-                            <li> <a href="./recurso/login.html"> Login </a> </li>
+                            <li> <a href="./recursos/login.html"> Login </a> </li>
                         </ul>   
                     </li>
                 </ul>
@@ -170,7 +170,7 @@
                             <div class="tenda-texto">
                                 <h2> <c:out value="${artigo.nome}"/> </h2>
                                 <p> <strong> Descricion:</strong> <c:out value="${artigo.descricion}"/></p>
-                                <p> <strong> Prezo: </strong><fmt:formatNumber currencyCode="EUR" value = "${artigo.prezo}" type ="currency"/></p>
+                                <p> <strong> Prezo: </strong><fmt:formatNumber currencySymbol="&euro;" value = "${artigo.prezo}" type ="currency"/></p>
                                 <p> <strong> Cantidade seleccionada: </strong> <c:out value="${artigo.seleccion}"/></p>
 
                                 <form action="./compra" method="POST" name="artigo">

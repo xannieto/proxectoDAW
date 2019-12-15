@@ -1,8 +1,8 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%@ page language='java'%>
-<%@ page import="javax.servlet.http.*" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ page language="java" import="javax.servlet.http.*" %>
 <%@page isELIgnored="false"%>
 
 <!DOCTYPE html>
@@ -127,7 +127,7 @@
                                 <li> <a href="../recursos/info_contacto.html"> Horarios e teléfono </a> </li>
                                 <li> <a href="../recursos/formulario_reserva.html"> Dar de alta </a> </li>
                                 <li> <a href="../recursos/modificar_reserva.html"> Rexistro </a> </li>
-                                <li> <a href="./login.jsp"> Login </a> </li>
+                                <li> <a href="../recursos/login.html"> Login </a> </li>
                             </ul>   
                         </li>
                     </ul>
@@ -186,7 +186,7 @@
                                         response.addCookie(ckEmail);
                                         %>
                                         <c:choose>
-                                            <c:when test="${empty sesionScope.carro}">
+                                            <c:when test="${empty sessionScope.carro.artigos}">
                                                 <h2> Ola, ${nome}</h2>
                                                 <p> Benvido a Ruralia, podes continuar nevegando pola nosa web e se lle apetece, pasar pola nosa tenda.</p>
                                             </c:when>

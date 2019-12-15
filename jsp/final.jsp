@@ -141,8 +141,8 @@
 
             <article class="col-sm-10 col-md-10 artigo">
                 <h2>Compra finalizada con éxito! </h2>
-                <p> <strong>Email de contacto: </strong><c:out value="${cookie.email_contacto.value}"/></p>
-                <p> <strong>Teléfono de contacto: </strong><c:out value="${cookie.telefono_contacto.value}"/></p>    
+                <p> <strong>Email de contacto: </strong><c:out value="${applicationScope.email_contacto}"/></p>
+                <p> <strong>Teléfono de contacto: </strong><c:out value="${applicationScope.telefono_contacto}"/></p>    
             </article>
         </section>
 

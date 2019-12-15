@@ -79,7 +79,7 @@
                             <li>
                                 <a> Ola, ${cookie.nome.value} </a>
                                 <ul class="submenu">
-                                    <li> <a href="./logout.jsp"> Pechar sesión </a> </li>
+                                    <li> <a href="./jsp/logout.jsp"> Pechar sesión </a> </li>
                                 </ul>
                             </li>
                         </c:when>
@@ -154,7 +154,7 @@
                     <div class="tenda-texto">
                         <h2> <c:out value="${artigo.nome}"/> </h2>
                         <p> <strong> Descricion:</strong> <c:out value="${artigo.descricion}"/></p>
-                        <p> <strong> Prezo: </strong><fmt:formatNumber currencyCode="EUR" value = "${artigo.prezo}" type ="currency"/></p>
+                        <p> <strong> Prezo: </strong><fmt:formatNumber currencySymbol="&euro;" value = "${artigo.prezo}" type ="currency"/></p>
                         <p> <strong> Cantidade seleccionada: </strong> <c:out value="${artigo.seleccion}"/></p>
                         <p> <strong> Existencias actuais: </strong> <c:out value="${artigo.existencias}"/></p>
                     </div>

@@ -26,7 +26,7 @@ public final class TendaDAO extends AbstractDAO {
                 stmItems.executeUpdate();
 
                 try {
-                    stmCompra = conexion.prepareStatement("insert into compra (email, produto, cantidade) values (?,?,?)");
+                    stmCompra = conexion.prepareStatement("insert into compra (usuario_email, produto_id, cantidade) values (?,?,?)");
                     stmCompra.setString(1, usuario.getEmail());
                     stmCompra.setInt(2, Integer.valueOf(art.getId()));
                     stmCompra.setInt(3, art.getSeleccion());
