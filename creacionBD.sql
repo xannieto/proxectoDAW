@@ -32,10 +32,12 @@ create table produto (
 
 create table compra (
     usuario_email varchar(40) not null,
-    produto_id int(6) unsigned not null,
+    produto_id int(6) unsigned not null auto_increment,
     data_compra timestamp default current_timestamp,
     cantidade int(3) not null,
-    primary key (usuario_email, produto_id, data_compra)
+    primary key (usuario_email, produto_id, data_compra),
+    foreign key (usuario_email) references usuario (email) on update cascade on delete cascade,
+    foreign key (produto_id) references produto (id) on update cascade on delete cascade
 );
     
 insert into produto

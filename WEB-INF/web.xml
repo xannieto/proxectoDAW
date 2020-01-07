@@ -10,22 +10,22 @@
 
         <init-param>
             <param-name>driver</param-name>
-            <param-value>org.mariadb.jdbc.Driver</param-value>
+            <param-value>com.mysql.jdbc.Driver</param-value>
         </init-param>
             
         <init-param>
             <param-name>usuarioP</param-name>
-            <param-value>xan</param-value>
+            <param-value>daw</param-value>
         </init-param>
 
         <init-param>
             <param-name>contrasinalP</param-name>
-            <param-value>07131024</param-value>
+            <param-value>daw</param-value>
         </init-param>
 
         <init-param>
             <param-name>urlP</param-name>
-            <param-value>jdbc:mariadb://localhost:3306/bd_alumnos</param-value>
+            <param-value>jdbc:mysql://localhost:3306/bd_alumnos</param-value>
         </init-param>
 
     </servlet>
@@ -41,27 +41,27 @@
 
         <init-param>
             <param-name>driver</param-name>
-            <param-value>org.mariadb.jdbc.Driver</param-value>
+            <param-value>com.mysql.jdbc.Driver</param-value>
         </init-param>
 
         <init-param>
             <param-name>usuarioP</param-name>
-            <param-value>xan</param-value>
+            <param-value>daw</param-value>
         </init-param>
 
         <init-param>
             <param-name>contrasinalP</param-name>
-            <param-value>07131024</param-value>
+            <param-value>daw</param-value>
         </init-param>
 
         <init-param>
             <param-name>urlP</param-name>
-            <param-value>jdbc:mariadb://localhost:3306/bd_alumnos</param-value>
+            <param-value>jdbc:mysql://localhost:3306/bd_alumnos</param-value>
         </init-param>
 
         <init-param>
             <param-name>usuarioA</param-name>
-            <param-value>xan</param-value>
+            <param-value>nietoGarcia</param-value>
         </init-param>
 
         <init-param>
@@ -71,7 +71,7 @@
 
         <init-param>
             <param-name>urlA</param-name>
-            <param-value>jdbc:mariadb://localhost:3306/nietoGarcia</param-value>
+            <param-value>jdbc:mysql://localhost:3306/nietogarcia</param-value>
         </init-param>
     </servlet>
 
@@ -111,12 +111,12 @@
 
         <init-param>
             <param-name>driver</param-name>
-            <param-value>org.mariadb.jdbc.Driver</param-value>
+            <param-value>com.mysql.jdbc.Driver</param-value>
         </init-param>
             
         <init-param>
             <param-name>usuario</param-name>
-            <param-value>xan</param-value>
+            <param-value>nietoGarcia</param-value>
         </init-param>
 
         <init-param>
@@ -126,7 +126,7 @@
 
         <init-param>
             <param-name>url</param-name>
-            <param-value>jdbc:mariadb://localhost:3306/nietoGarcia</param-value>
+            <param-value>jdbc:mysql://localhost:3306/nietogarcia</param-value>
         </init-param>
 
     </servlet>

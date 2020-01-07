@@ -149,8 +149,6 @@ public final class compra extends HttpServlet {
                         synchronized(sesion){
                             fa.realizarCompra(carro, usuario, saida);
                             
-                            
-                            
                             String emailContacto = getServletContext().getInitParameter("email_contacto");
                             String telefonoContacto = getServletContext().getInitParameter("telefono_contacto");
     
